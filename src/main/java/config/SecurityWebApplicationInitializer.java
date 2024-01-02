@@ -2,7 +2,6 @@ package config;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 
-public class SecurityWebApplicationInitializer extends AbstractSecurityWebApplicationInitializer {
-	// no code required here
+public class SecurityWebApplicationInitializer extends AbstractSecurityWebApplicationInitializer{
+	// this should be empty
 }
-
