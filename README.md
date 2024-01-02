@@ -1,7 +1,7 @@
 # MBIP Project - Carbon Footprint Analysis
 ## Overview
 
-The MBIP (Multi-Data Integration for Carbon Footprint Analysis) project is aimed at assessing and understanding the carbon footprint of individuals living in Iskander Puteri. By collecting and analyzing data related to electricity consumption, recycling habits, and water consumption, we aim to provide valuable insights into the environmental impact of daily activities and promote sustainable living practices.
+The MBIP carbonfoot print project is aimed at assessing and understanding the carbon footprint of individuals living in Iskander Puteri. By collecting and analyzing data related to electricity consumption, recycling habits, and water consumption, we aim to provide valuable insights into the environmental impact of daily activities and promote sustainable living practices.
 ## Table of Contents
 
 - [Features](#features)
