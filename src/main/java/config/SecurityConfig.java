@@ -8,11 +8,12 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 @Configuration
-@EnableWebSecurity(debug = true)
+@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //this class create the spring security filter chain for our app
 	// don’t put any code at this moment
@@ -20,20 +21,36 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	DataSource dataSource;
 	
-//	@Autowired
-//	public SecurityConfig(DataSource dataSource) {
-//		this.dataSource = dataSource;
-//	}
-	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.jdbcAuthentication()
+
+			auth.jdbcAuthentication()
 			.dataSource(this.dataSource)
+		    .usersByUsernameQuery("SELECT email,password,enabled FROM users WHERE email = ?")
+		    .authoritiesByUsernameQuery("SELECT email,authority FROM authorities WHERE email = ?")
 			.passwordEncoder(new BCryptPasswordEncoder());
 		
-//	.authoritiesByUsernameQuery(
-//    "SELECT username, 'ROLE_USER' FROM users WHERE username=?")
+	}
+	
+	@Override
+	protected void configure(HttpSecurity http) throws Exception{
+
+		http
+		.authorizeRequests()
+		.antMatchers("/Home")
+		.permitAll()
+		.antMatchers("/register/**")
+		.permitAll()
+		.anyRequest().authenticated()
+		.and()
+		.formLogin()
+		.permitAll()
+		.and()
+		.logout()
+		.permitAll();
 		
+		// This is used to add custom login page
+//		.loginPage("/login")
 	}
 
 }// end class

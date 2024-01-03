@@ -6,8 +6,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class ProjectController {
-	@RequestMapping("/Home")
+	@RequestMapping("/")
 	public String landingPage() {
-		return "homepage";
+		return "homepage/homepage";
 	}
+	
 }

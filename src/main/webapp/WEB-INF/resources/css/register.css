@@ -1,0 +1,129 @@
+@charset "ISO-8859-1";
+
+.main-cotainer
+{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.title 
+{
+    width: 110vh;
+    top: 0;
+    left: 0;
+    background-color: #8bc34a;
+   
+   
+}
+
+.title > h1
+{
+    text-align: center;
+}
+
+.user-type > img
+{
+    width: 159px;
+    height: 151px;
+    align-self: center;
+    
+}
+.user-type >form
+{
+    display: flex;
+    flex-direction: row;
+    width: 110vh;
+    justify-content: space-around;
+    margin-top: 2vh;
+}
+
+.user-type 
+{
+    display: flex;
+    width: 110vh;
+    justify-content: space-around;
+    margin-top: 2vh;
+
+}
+.user 
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.text-wrapper2
+{
+    margin-left: 5vh;
+    font-weight: bold;
+}
+
+.text-personal
+{
+    text-align: left;
+    margin-left: 5vh;
+    font-weight: bold;
+}
+.radio
+{
+    justify-content: space-evenly;
+    gap: 18vh;
+}
+
+.personal-details > form
+{
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.personal-details
+{
+    display: flex;
+    justify-content: center;
+    width: 110vh;
+    border-top: 0px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    width: 80vh;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 35vh;
+    margin-bottom: 3vh;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.user, .user-type , .personal-details
+{
+    background-color: white;
+}
+
+body
+{
+    background-image: url('http://localhost:8080/Project/resources/images/apply-pic.png');  
+    background-size: cover;
+    background-position: center;
+}
