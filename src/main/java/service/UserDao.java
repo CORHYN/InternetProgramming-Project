@@ -11,7 +11,11 @@ public class UserDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
+<<<<<<< HEAD
 	public String createUser(String authority,String fullName, String dob,Integer phone,String address,String email,String password) {
+=======
+		public String createUser(String authority,String fullName, String dob,Integer phone,String address,String email,String password) {
+>>>>>>> 6f2509519b57a73380cf1227bbb1b8afbfb31d0f
 		String sql1 = "INSERT INTO users(email, password, enabled) VALUES (?, ?, ?)";
 		String sql2 = "INSERT INTO authorities(email,authority) VALUES (?, ?)";
 		String sql3 = "INSERT INTO user_info(email, fullname, dob, phone, address) VALUES (?, ?, ?, ?, ?)";

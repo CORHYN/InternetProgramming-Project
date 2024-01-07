@@ -1,0 +1,77 @@
+@charset "ISO-8859-1";
+
+body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-image: url('http://localhost:8080/Project/resources/images/homepage-pic.png'); 
+             background-size: cover;
+    background-position: center; 
+        }
+        form {
+            width: 28vw;
+            margin: auto;
+            
+        }
+        label {
+        	margin-top: 2vh;
+            display: block;
+            margin-bottom: 8px;
+            margin-left: 0.5vw;
+        }
+        input {
+            width: 25vw;
+            padding: 8px;
+            margin-bottom: 16px;
+           box-sizing: border-box;
+            margin-left: 1vw;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-left: 10vw;
+            margin-top: 2vh;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+       
+        #FormBox{
+    height: 53vh;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-bottom: 8vh;
+}
+
+.leg{
+	margin-top: 5vh;
+    padding-top: 3.5%;
+    padding-bottom: 3.5%;
+    width: auto;
+    height: auto;
+    flex-shrink: 0;
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
+    background: #8BC34A;
+    padding-left: 0.5vw;
+}
+
+
+.container{
+    display: flex;
+    height: auto;
+    justify-content: center;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    border: 0px;
+}
+    
+        
+        
+        
+        

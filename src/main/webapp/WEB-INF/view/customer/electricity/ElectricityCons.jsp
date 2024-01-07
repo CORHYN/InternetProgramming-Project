@@ -18,7 +18,11 @@
 
 <div class="container">
     <div>
+<<<<<<< HEAD
       <form id="FormBox" action="http://localhost:8080/Project/form" enctype="multipart/form-data" method="post" >
+=======
+      <form id="FormBox" action="WaterMangment.html">
+>>>>>>> 6f2509519b57a73380cf1227bbb1b8afbfb31d0f
         <div class="leg">
           <legend>Energy Consumption (1/5)</legend>
         </div>
@@ -31,7 +35,10 @@
           <input type="number" id="fuel_oil" name="fuel_oil" required><span>liters</span><br>
           <label for="other-energy-sources">Other energy sources</label>
           <input type="text" id="other_energy_sources" name="other_energy_sources"><br>
+<<<<<<< HEAD
           <input type="file" name="file"/><br>
+=======
+>>>>>>> 6f2509519b57a73380cf1227bbb1b8afbfb31d0f
         </div>
         <div class="buttoms">
           <button type="submit" style="margin-right: 50px;">Next</button>
