@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.view.RedirectView;
 
 import service.UserDao;
 
@@ -23,12 +24,12 @@ public class RegisterController {
 	
 	@GetMapping("/")
 	public String registerPage() {
-		return "LoginRegister/register";
+		return "customer/LoginRegister/register";
 	}
 	// String fullName, String dob,Integer phone,String address,
 	@PostMapping("/createUser")
-	public String getRegistration(Model model,@RequestParam  String fullName, String dob,Integer phone,String address,String email, String password) {
-		String id = userdao.createUser(fullName, dob, phone, address, email, password);
-		return "New User Created";
+	public RedirectView getRegistration(Model model,@RequestParam String authority, String fullName, String dob,Integer phone,String address,String email, String password) {
+		String id = userdao.createUser(authority, fullName, dob, phone, address, email, password);
+		return new RedirectView("http://localhost:8086/Project/");
 	}
 }

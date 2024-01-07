@@ -8,7 +8,27 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ProjectController {
 	@RequestMapping("/")
 	public String landingPage() {
-		return "homepage/homepage";
+		return "customer/homepage/homepage";
 	}
 	
+	@RequestMapping("/recycle")
+	public String landingPage2() {
+		return "customer/recycle/RecycleActivity";
+	}
+	
+	
+	@RequestMapping("/electricity")
+	public String landingPage3() {
+		return "customer/electricity/ElectricityCons";
+	}
+	
+	@RequestMapping("/water")
+	public String landingPage4() {
+		return "customer/water/WaterManagment";
+	}
+	
+	@RequestMapping("/add")
+	public String landingPage5() {
+		return "admin/add_activity";
+	}
 }
