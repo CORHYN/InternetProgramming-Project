@@ -9,27 +9,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
-import service.UserDao;
+import service.add_activity;
 
 @Controller
-@RequestMapping("/register")
-public class RegisterController {
+@RequestMapping("/add")
+public class AddActivityController{
 	
-	private final UserDao userdao;
+	private final add_activity  add_activity ;
 	
 	@Autowired
-	RegisterController(UserDao userdao){
-		this.userdao = userdao;
+	AddActivityController(add_activity  add_activity){
+		this.add_activity = add_activity;
+	}
+
+	@GetMapping("/")
+	public String landingPage5() {
+		return "admin/events/add_activity";
 	}
 	
-	@GetMapping("/")
-	public String registerPage() {
-		return "customer/LoginRegister/register";
-	}
 	// String fullName, String dob,Integer phone,String address,
-	@PostMapping("/createUser")
-	public RedirectView getRegistration(Model model,@RequestParam String authority, String fullName, String dob,Integer phone,String address,String email, String password) {
-		String id = userdao.createUser(authority, fullName, dob, phone, address, email, password);
+	@PostMapping("/activity")
+	public RedirectView getRegistration(Model model,@RequestParam String activityName, String activityDate, String location) {
+		add_activity.createUser(activityName, activityDate, location);
 		return new RedirectView("http://localhost:8080/Project/");
 	}
 }

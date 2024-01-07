@@ -35,19 +35,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 
+		
 		http
 		.authorizeRequests()
-		.antMatchers("/Home")
+		.antMatchers("/")
 		.permitAll()
 		.antMatchers("/register/**")
 		.permitAll()
 		.anyRequest().authenticated()
 		.and()
 		.formLogin()
+//		.loginPage("/LOGIN")
 		.permitAll()
 		.and()
 		.logout()
-		.permitAll();
+		.permitAll()
+		.and().csrf().disable(); ;
 		
 		// This is used to add custom login page
 //		.loginPage("/login")
