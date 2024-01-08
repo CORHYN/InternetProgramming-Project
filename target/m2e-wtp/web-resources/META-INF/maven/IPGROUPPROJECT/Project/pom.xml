@@ -86,14 +86,13 @@
 			<version>4.0.1</version>
 			<scope>provided</scope>
 		</dependency>
-<<<<<<< HEAD
+
 		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.5</version>
 		</dependency>
-=======
->>>>>>> 6f2509519b57a73380cf1227bbb1b8afbfb31d0f
+
 
 	</dependencies>
 	<build>

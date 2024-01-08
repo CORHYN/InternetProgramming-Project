@@ -31,12 +31,8 @@ public class ProjectController {
 		return "customer/water/WaterManagment";
 	}
 	
-<<<<<<< HEAD
 	@RequestMapping("/add")
 	public String landingPage5() {
 		return "admin/add_activity";
 	}
-=======
-	
->>>>>>> 6f2509519b57a73380cf1227bbb1b8afbfb31d0f
 }

@@ -38,24 +38,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		http
 		.authorizeRequests()
-<<<<<<< HEAD
 		.antMatchers("/resources/**")
-=======
+		.permitAll()
 		.antMatchers("/")
->>>>>>> 6f2509519b57a73380cf1227bbb1b8afbfb31d0f
 		.permitAll()
 		.antMatchers("/register/**")
 		.permitAll()
 		.anyRequest().authenticated()
 		.and()
-		.formLogin()
-//		.loginPage("/LOGIN")
-		.permitAll()
-		.and()
 		.logout()
 		.permitAll()
-		.and().csrf().disable(); ;
+		.and().csrf().disable()
+		; 
 		
+		http.formLogin(form -> form.loginPage("/login").permitAll());
 		// This is used to add custom login page
 //		.loginPage("/login")
 	}
