@@ -1,5 +1,9 @@
 package controller;
 
+import java.security.Principal;
+
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,5 +31,8 @@ public class ProjectController {
 		return "customer/water/WaterManagment";
 	}
 	
-	
+	@RequestMapping("/add")
+	public String landingPage5() {
+		return "admin/add_activity";
+	}
 }
