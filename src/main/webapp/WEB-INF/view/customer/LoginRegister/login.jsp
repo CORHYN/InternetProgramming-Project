@@ -9,7 +9,7 @@
 <link type="text/css" href="<c:url value='/resources/css/login.css' />">
 </head>
 <body>
-	<form class="form-signin" method="post" action="/Project/login">
+	<form class="form-signin" method="post" action="/Project/login" data-dashlane-rid="422ab63935df9179" data-form-type="login">
 		<h2 class="form-signin-heading">Please sign in</h2>
 		<p>
 			<label for="username" class="sr-only">Email</label> <input
