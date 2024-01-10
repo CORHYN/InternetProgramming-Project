@@ -6,6 +6,9 @@
 <link rel="stylesheet" type="text/css" href="http://localhost:8080/Project/resources/css/login.css">
 </head>
 <body>
+
+	
+
 	<h1>Please Log In</h1>
 	<div th:if="${param.error}">Invalid username and password.</div>
 	<div th:if="${param.logout}">You have been logged out.</div>
@@ -17,6 +20,7 @@
 			<input type="password" name="password" placeholder="Password" />
 		</div>
 		<input type="submit" value="Log in" />
+
 	</form>
 </body>
 </html>

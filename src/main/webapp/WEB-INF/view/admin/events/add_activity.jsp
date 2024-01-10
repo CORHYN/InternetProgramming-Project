@@ -31,7 +31,11 @@
         
         <label for="activityDate">Location:</label>
         <input type="text" id="location" name="location" required>
-		<input type="file" name="file"/><br>
+        
+        <!-- impliment this button feature so admin can uplaod poster to the database -->
+    		<label for="file-input" class="custom-button">Upload Poster</label>
+    		<input type="file" id="file-input" name="file">
+		
 
         <button type="submit" onclick="addActivity()">Add Activity</button>
             
