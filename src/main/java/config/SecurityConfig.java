@@ -35,7 +35,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 
-		
+		http.formLogin(form -> form.loginPage("/login").permitAll());
+		// This is used to add custom login page
 		http
 		.authorizeRequests()
 		.antMatchers("/resources/**")
@@ -51,9 +52,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.and().csrf().disable()
 		; 
 		
-		http.formLogin(form -> form.loginPage("/login").permitAll());
-		// This is used to add custom login page
-//		.loginPage("/login")
+		
+
 	}
 
 }// end class

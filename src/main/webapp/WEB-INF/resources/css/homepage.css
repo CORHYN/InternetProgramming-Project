@@ -112,14 +112,12 @@ h4
 {
     position: relative;
     width: 100%;
-    margin: auto;
 }
 .homepage-pic
 {
     width: 100%;
     height: 80vh;
     object-fit: cover;
-    border-radius: 10px;
 }
 .homepage-button-login
 {

@@ -18,7 +18,7 @@
 
 <div class="container">
     <div>
-        <form id="FormBox"  action="http://localhost:8080/Project/add/activity" method="post">
+        <form id="FormBox"  action="http://localhost:8080/Project/add/activity" enctype="multipart/form-data" method="post">
             <div class="leg">
                 <legend>Add Activity</legend>
             </div>
@@ -31,6 +31,7 @@
         
         <label for="activityDate">Location:</label>
         <input type="text" id="location" name="location" required>
+		<input type="file" name="file"/><br>
 
         <button type="submit" onclick="addActivity()">Add Activity</button>
             

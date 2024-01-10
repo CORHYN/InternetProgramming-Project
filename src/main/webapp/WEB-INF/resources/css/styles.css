@@ -257,3 +257,17 @@ ul > li > a
     padding: 10px;
     text-align: center;
 }
+
+.form_data_items{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form_data_items > input{
+    width: 87%;
+}
+
+.form_data_items > span{
+    padding-left: 5%;
+}
