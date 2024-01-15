@@ -67,7 +67,7 @@ public class AddActivityController {
 	@GetMapping("/view-activities")
 	public ModelAndView getall_mav() {
 		List<Activity> activityList = add_activity.getAllActivities();
-		ModelAndView mav = new ModelAndView("admin/events/listofactivities");
+		ModelAndView mav = new ModelAndView("customer/activities/listofactivities");
 		mav.addObject("activityList", activityList);
 		return mav;
 	}

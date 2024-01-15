@@ -24,6 +24,7 @@
             <th>Activity Name</th>
             <th>Activity Date</th>
             <th>Activity Location</th>
+            <th>Activity File</th>
         </tr>
     </thead>
     <tbody>
@@ -32,6 +33,7 @@
                 <td><%= activity.getActivityName() %></td>
                 <td><%= activity.getActivityDate() %></td>
                 <td><%= activity.getActivityLocation() %></td>
+               <td><%=  activity.getActivityFile() %></td>
             </tr>
         <% } %>
     </tbody>
