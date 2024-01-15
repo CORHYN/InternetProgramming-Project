@@ -98,7 +98,7 @@ public class Activity {
                 outputStream.write(buffer, 0, bytesRead);
             }
 
-            return filePath;
+            return "http://localhost:8080/Project/resources/files/" + fileName;
         }
     }
 }
