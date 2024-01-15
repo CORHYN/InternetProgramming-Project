@@ -3,43 +3,95 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     
     
-    
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Water Managment</title>
+    <title>Electricity Consumption</title>
     <link rel="stylesheet" href="<c:url value='/resources/css/styles.css' />">
 </head>
 <body>
+
 
 <jsp:include page="header.jsp" />
 
 <div class="container">
     <div>
-        <form id="FormBox"  action="RecyclingActivity.html">
-            <div class="leg">
-                <legend>Water Consumption (2/5)</legend>
-            </div>
-            <div class="form_data_box">
-                <label for="household-water-usage">Household Water Usage*</label>
-            <input type="number" id="household-water-usage" name="household-water-usage" required><br>
-            <label for="outdoor-water-usage">Outdoor Water Usage*</label>
-            <input type="number" id="outdoor-water-usage" name="outdoor-water-usage" required><br>
-            </div>
-            <div class="buttoms">
-                <button type="submit" style="margin-right: 50px;" onclick="">Next</button>
-            <button type="button" onclick="window.history.back()">Back</button>
-            </div>
-            
-            
-        </form>
+      <form id="FormBox" action="http://localhost:8080/Project/form" enctype="multipart/form-data" method="post" >
+        <div class="leg">
+          <legend> Water Consumption</legend>
+        </div>
+        <div class="form_data_box">
+          <label for="electricity">Value (m3)</label>
+          <div class="form_data_items">
+            <input  type="number" id="electricity" name="electricity" required><br>
+          </div>
+          <div id="drop-area" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+            <div>Drag &amp; Drop files here or click to select</div>
+            <input type="file" id="file-input" multiple onchange="handleFiles(this.files)">
+            <label for="file-input" id="file-label">Choose a file</label>
+            <ul id="file-list"></ul>
+            <button id="select-button" onclick="document.getElementById('file-input').click()">Select File</button>
+          </div> 
+			</div>
+        <div class="buttoms">
+          <button type="submit" style="margin-right: 50px;">Next</button>
+          <button type="reset">Reset</button>
+        </div>
+      </form>
     </div>
-</div>
-
+  </div>
+  
 
 <jsp:include page="footer.jsp" />
 
+
+
+
+
+<script>
+  function handleDragOver(event) {
+    event.preventDefault();
+    document.getElementById('drop-area').classList.add('highlight');
+  }
+
+  function handleDragLeave(event) {
+    event.preventDefault();
+    document.getElementById('drop-area').classList.remove('highlight');
+  }
+
+  function handleDrop(event) {
+    event.preventDefault();
+    document.getElementById('drop-area').classList.remove('highlight');
+    handleFiles(event.dataTransfer.files);
+  }
+
+  function handleFiles(files) {
+    const fileList = document.getElementById('file-list');
+
+    fileList.innerHTML = '';
+
+    for (const file of files) {
+      const listItem = document.createElement('li');
+      listItem.className = 'file-item';
+      listItem.textContent = `${file.name} (${formatBytes(file.size)})`;
+      fileList.appendChild(listItem);
+    }
+  }
+
+  function formatBytes(bytes) {
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+
+    if (bytes === 0) return '0 Byte';
+    const i = parseInt(Math.floor(Math.log(bytes) / Math.log(k)));
+    return Math.round(bytes / Math.pow(k, i)) + ' ' + sizes[i];
+  }
+</script>
+
+
+
 </body>
 </html>
+    
