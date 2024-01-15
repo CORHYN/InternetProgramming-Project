@@ -67,6 +67,7 @@ activity and than viewing it here  -->
             <th>Activity Name</th>
             <th>Activity Date</th>
             <th>Activity Location</th>
+            <th>Activity File</th>
         </tr>
     </thead>
     <tbody>

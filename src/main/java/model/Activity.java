@@ -1,60 +1,82 @@
 package model;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.sql.SQLException;
+
+import org.omg.CORBA.portable.InputStream;
+
+import com.mysql.cj.jdbc.Blob;
+
 public class Activity {
-    @Override
+	@Override
 	public String toString() {
 		return "Activity [id=" + id + ", activityName=" + activityName + ", activityDate=" + activityDate
 				+ ", activityLocation=" + activityLocation + "]";
 	}
 
 	private int id;
-    private String activityName;
-    private String activityDate;
-    private String activityLocation;
+	private String activityName;
+	private String activityDate;
+	private String activityLocation;
 
-    // Constructors, getters, and setters
+	public Blob getActivityFile() {
+		return activity_file;
+	}
 
-    public Activity() {
-    }
+	public void setActivityFile(Blob activity_file) {
+		this.activity_file = activity_file;
+	}
 
-    public Activity(int id, String activityName, String activityDate, String activityLocation) {
-        this.id = id;
-        this.activityName = activityName;
-        this.activityDate = activityDate;
-        this.activityLocation = activityLocation;
-    }
+	private Blob activity_file;
 
-    // Getters and Setters
+	// Constructors, getters, and setters
 
-    public int getId() {
-        return id;
-    }
+	public Activity() {
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public Activity(int id, String activityName, String activityDate, String activityLocation, Blob activity_file)
+			throws SQLException {
+		this.id = id;
+		this.activityName = activityName;
+		this.activityDate = activityDate;
+		this.activityLocation = activityLocation;
+		this.activity_file = activity_file;
+	}
 
-    public String getActivityName() {
-        return activityName;
-    }
+	// Getters and Setters
 
-    public void setActivityName(String activityName) {
-        this.activityName = activityName;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public String getActivityDate() {
-        return activityDate;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setActivityDate(String activityDate) {
-        this.activityDate = activityDate;
-    }
+	public String getActivityName() {
+		return activityName;
+	}
 
-    public String getActivityLocation() {
-        return activityLocation;
-    }
+	public void setActivityName(String activityName) {
+		this.activityName = activityName;
+	}
 
-    public void setActivityLocation(String activityLocation) {
-        this.activityLocation = activityLocation;
-    }
+	public String getActivityDate() {
+		return activityDate;
+	}
+
+	public void setActivityDate(String activityDate) {
+		this.activityDate = activityDate;
+	}
+
+	public String getActivityLocation() {
+		return activityLocation;
+	}
+
+	public void setActivityLocation(String activityLocation) {
+		this.activityLocation = activityLocation;
+	}
 }

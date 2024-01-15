@@ -40,4 +40,5 @@ public class ProjectController {
 	public String landingPage6() {
 		return "customer/generatereport/generateReport";
 	}
+	
 }
