@@ -9,8 +9,18 @@ public class DocumentDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
-	public void uploaddocument(String email,byte[] file) {
+	public void uploadelectricitybill(String email,byte[] file) {
 		String sql = "INSERT INTO document(email,file) VALUES (?, ?)";
 		int rows = jdbcTemplate.update(sql, email,file);
+	}
+	
+	public void uploadwaterbill(String email,byte[] file) {
+		String sql = "INSERT INTO waterbill(email,file) VALUES (?,?)";
+		int row = jdbcTemplate.update(sql,email,file);
+	}
+	
+	public void uploadrecyclebill(String email,byte[] file) {
+		String sql = "INSERT INTO recyclebill(email,file) VALUES (?,?)";
+		int row = jdbcTemplate.update(sql,email,file);
 	}
 }

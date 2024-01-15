@@ -35,4 +35,9 @@ public class ProjectController {
 	public String landingPage5() {
 		return "admin/add_activity";
 	}
+	
+	@RequestMapping("/generatereport")
+	public String landingPage6() {
+		return "customer/generatereport/generateReport";
+	}
 }

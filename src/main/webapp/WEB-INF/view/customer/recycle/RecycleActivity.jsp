@@ -18,7 +18,7 @@
 
 <div class="container">
     <div>
-      <form id="FormBox">
+      <form id="FormBox"  action="http://localhost:8080/Project/recyclebillform" method="post" enctype="multipart/form-data">
         <div class="leg">
           <legend>Recycling Activity (3/5)</legend>
         </div>
@@ -29,6 +29,8 @@
           <input type="text" id="composting_habits" name="composting_habits" required><br>
           <label for="landfill_waste_generation">Landfill Waste Generation</label>
           <input type="text" id="landfill_waste_generation" name="landfill_waste_generation" required><br>
+          <label for="file">Provide Proof Of Bill</label>
+            <input type="file" name="file"/><br>
         </div>
         <div class="buttoms">
           <button type="submit" style="margin-right: 50px;">Submit</button>

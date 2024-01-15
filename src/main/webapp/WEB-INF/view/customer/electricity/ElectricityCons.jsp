@@ -35,7 +35,7 @@
           <div class="form_data_items">
             <input type="number" id="fuel_oil" name="fuel_oil" required><span>liters</span><br>
           </div>
-          <label for="other-energy-sources">Other energy sources</label>
+          <label for="other_energy_sources">Other energy sources</label>
           <div class="form_data_items">
             <input type="text" id="other_energy_sources" name="other_energy_sources"><br>
           </div>

@@ -18,15 +18,17 @@
 
 <div class="container">
     <div>
-        <form id="FormBox"  action="RecyclingActivity.html">
+        <form id="FormBox"  action="http://localhost:8080/Project/waterbillform" method="post" enctype="multipart/form-data">
             <div class="leg">
                 <legend>Water Consumption (2/5)</legend>
             </div>
             <div class="form_data_box">
-                <label for="household-water-usage">Household Water Usage*</label>
-            <input type="number" id="household-water-usage" name="household-water-usage" required><br>
-            <label for="outdoor-water-usage">Outdoor Water Usage*</label>
-            <input type="number" id="outdoor-water-usage" name="outdoor-water-usage" required><br>
+                <label for="household_water_usage">Household Water Usage*</label>
+            <input type="number" id="household_water_usage" name="household_water_usage" required><br>
+            <label for="outdoor_water_usage">Outdoor Water Usage*</label>
+            <input type="number" id="outdoor_water_usage" name="outdoor_water_usage" required><br>
+            <label for="file">Provide Proof Of Bill</label>
+            <input type="file" name="file"/><br>
             </div>
             <div class="buttoms">
                 <button type="submit" style="margin-right: 50px;" onclick="">Next</button>

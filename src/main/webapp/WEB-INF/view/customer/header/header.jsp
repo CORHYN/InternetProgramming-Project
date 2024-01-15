@@ -16,10 +16,15 @@
     <div class="dropdown">
         <button class="dropbtn">Our Services</button>
         <div class="dropdown-content">
-            <a class="drop" href="homepage.html">Home</a>
-            <a class="drop" href="register.html">Registration</a>
-            <a class="drop" href="carbonFootprint.html">Carbon Footprint</a>
-            <a class="drop" href="#service3">Generate Report</a>
+            <div class="dropdown-content">
+            <a class="drop" href="http://localhost:8080/Project/">Home</a>
+            <a class="drop" href="http://localhost:8080/Project/register/">Registration</a>
+            <a class="drop" href="http://localhost:8080/Project/recycle">Recycling Activity </a>
+            <a class="drop" href="http://localhost:8080/Project/electricity">ElectricityConsumtion </a>
+			<a class="drop" href="http://localhost:8080/Project/water"> Water Management </a>
+            <a class="drop" href="http://localhost:8080/Project/generatereport">Generate Report</a>
+            <a class="drop" href="http://localhost:8080/Project/logout">Logout</a>
+        </div>
         </div>
     </div>
     <div class="mbip-icon">
