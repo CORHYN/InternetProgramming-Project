@@ -17,7 +17,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
       <div>
         <form
           id="FormBox"
-          action="http://localhost:8080/Project/form"
+          action="http://localhost:8080/Project/waterbillform"
           enctype="multipart/form-data"
           method="post"
         >
@@ -25,31 +25,30 @@ uri="http://java.sun.com/jsp/jstl/core"%>
             <legend>Water Consumption</legend>
           </div>
           <div class="form_data_box">
-            <label for="electricity">Value (m3)</label>
-            <div class="form_data_items">
-              <input
+            <label for="water">Value (m3)</label>
+            <input
                 type="number"
-                id="electricity"
-                name="electricity"
+                id="water"
+                name="water"
                 required
               /><br />
-            </div>
             <div
               id="drop-area"
               ondragover="handleDragOver(event)"
               ondragleave="handleDragLeave(event)"
               ondrop="handleDrop(event)"
             >
-              <div>Drag &amp; Drop files here or click to select</div>
+              <div>Drag &amp; Drop files here</div>
               <input
                 type="file"
                 id="file-input"
+                name="file"
                 multiple
                 onchange="handleFiles(this.files)"
               />
-              <label for="file-input" id="file-label">Choose a file</label>
+              <label for="file-input" id="file-label">or <br> click to select</label>
               <ul id="file-list"></ul>
-              <button
+              <button type="button"
                 id="select-button"
                 onclick="document.getElementById('file-input').click()"
               >

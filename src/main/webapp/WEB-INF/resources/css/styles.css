@@ -35,6 +35,7 @@ body {
 .form_data_box {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: auto 10% 10% 10%;
 }
 
@@ -44,7 +45,7 @@ body {
   margin-bottom: 2vh;
 }
 
-button {
+button,input[type="submit"] {
   width: 30%;
   height: 5vh;
   flex-shrink: 0;
@@ -233,7 +234,10 @@ ul > li > a {
 }
 
 #drop-area {
-  margin-top: 5vh;
+	align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3vh;
   border: 2px dashed #ccc;
   border-radius: 8px;
   padding: 15px;
@@ -313,5 +317,15 @@ ul > li > a {
   width: 200px;
 }
 
-.form_data_items_files > input[type="file"] {
+.form-fix {
+  margin-left: 10px;
 }
+
+input[type="number"], label{
+	width: 82%
+}
+
+input[type="number"]{
+	margin-top: 1vh;
+}
+

@@ -38,15 +38,9 @@
         <div class="personal-details" style="margin-bottom: 5vh; border-radius: 0px 0px 10px 10px;">
             
             <form action="<%= request.getContextPath() %>/register/createUser" method="post">
-               <div class="user-type radio">
-                <label>
-                      <input type="radio" name="authority" value="TECHNICAL">
-                    </label>
-                
-                
-                    <label>
-                      <input type="radio" name="authority" value="participant">
-                    </label>
+               <div class="user-type-radio">
+					<input id="wow" type="radio" name="authority" value="TECHNICAL">
+                	<input id="mao" type="radio" name="authority" value="participant">
 				</div>
                 <label for="fullName">Full Name:</label>
                 <input type="text" id="fullName" name="fullName" required>

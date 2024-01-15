@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<jsp:include page="header.jsp" />
+<jsp:include page="../header/header.jsp" />
 
 
 <div class="homepage-pic-container">

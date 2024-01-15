@@ -73,8 +73,10 @@
 
 .personal-details > form
 {
+	display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
 }
 
 .personal-details
@@ -92,8 +94,16 @@ label {
     width: 80vh;
 }
 
+.user-type-radio{
+	display: flex;
+	justify-content: space-between;
+	width: 135%;
+}
+
+
+
 input {
-    width: 100%;
+    width: 75%;
     padding: 8px;
     margin-bottom: 16px;
     box-sizing: border-box;

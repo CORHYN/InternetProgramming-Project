@@ -23,6 +23,7 @@
             <a class="drop" href="http://localhost:8080/Project/electricity">ElectricityConsumtion </a>
 			<a class="drop" href="http://localhost:8080/Project/water"> Water Management </a>
             <a class="drop" href="http://localhost:8080/Project/generatereport">Generate Report</a>
+            <a class="drop" href="http://localhost:8080/Project/generatereport">View Bill Status</a>
             <a class="drop" href="http://localhost:8080/Project/logout">Logout</a>
         </div>
         </div>
