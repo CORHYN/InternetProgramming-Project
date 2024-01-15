@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="model.Activity" %>
+<%@ page import="java.io.File" %>
+<%@ page import="java.io.FileOutputStream" %>
+<%@ page import="java.io.IOException" %>
+<%@ page import="java.io.InputStream" %>
+<%@ page import="java.sql.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -16,7 +21,10 @@
 
 
 <% List<Activity> activityList = (List<Activity>) request.getAttribute("activityList"); %>
-
+<%
+	String filePath = "path/to/your/file.txt";
+	
+%>
 <div class="main-container">
 		<table>
     <thead>
@@ -28,12 +36,13 @@
         </tr>
     </thead>
     <tbody>
+    <% %>
         <% for (Activity activity : activityList) { %>
             <tr>
                 <td><%= activity.getActivityName() %></td>
                 <td><%= activity.getActivityDate() %></td>
                 <td><%= activity.getActivityLocation() %></td>
-               <td><%=  activity.getActivityFile() %></td>
+               <td><a href="<%=  activity.downloadPdf() %>" download="your_file_name.pdf" ><%=  activity.downloadPdf() %></a></td>
             </tr>
         <% } %>
     </tbody>

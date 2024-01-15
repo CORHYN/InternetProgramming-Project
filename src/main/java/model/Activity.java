@@ -5,8 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.sql.SQLException;
-
-import org.omg.CORBA.portable.InputStream;
+import java.io.InputStream;
 
 import com.mysql.cj.jdbc.Blob;
 
@@ -21,33 +20,33 @@ public class Activity {
 	private String activityName;
 	private String activityDate;
 	private String activityLocation;
-
-	public Blob getActivityFile() {
-		return activity_file;
-	}
-
-	public void setActivityFile(Blob activity_file) {
-		this.activity_file = activity_file;
-	}
-
-	private Blob activity_file;
+	private Blob activityFile;
 
 	// Constructors, getters, and setters
 
 	public Activity() {
 	}
 
-	public Activity(int id, String activityName, String activityDate, String activityLocation, Blob activity_file)
+	public Activity(int id, String activityName, String activityDate, String activityLocation, Blob activityFile)
 			throws SQLException {
 		this.id = id;
 		this.activityName = activityName;
 		this.activityDate = activityDate;
 		this.activityLocation = activityLocation;
-		this.activity_file = activity_file;
+		this.activityFile = activityFile;
 	}
 
 	// Getters and Setters
 
+	public Blob getActivityFile() {
+		return activityFile;
+	}
+	
+	public void setActivityFile(Blob activityFile) {
+		this.activityFile = activityFile;
+	}
+
+	
 	public int getId() {
 		return id;
 	}
@@ -79,4 +78,27 @@ public class Activity {
 	public void setActivityLocation(String activityLocation) {
 		this.activityLocation = activityLocation;
 	}
+	
+	public String downloadPdf() throws SQLException, IOException {
+		 if (activityFile == null) {
+		        // Handle the case where activityFile is null, e.g., return an error message or throw an exception
+		        return "Error: Activity file is null";
+		    }
+		String downloadsFolder = System.getProperty("user.home") + "\\Documents\\Project\\Project\\src\\main\\webapp\\WEB-INF\\resources\\files\\";
+        String fileName = this.id + this.activityName +".pdf";
+        String filePath = downloadsFolder + fileName;
+
+        try (InputStream inputStream = activityFile.getBinaryStream();
+             FileOutputStream outputStream = new FileOutputStream(new File(filePath))) {
+
+            byte[] buffer = new byte[4096];
+            int bytesRead;
+
+            while ((bytesRead = inputStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, bytesRead);
+            }
+
+            return filePath;
+        }
+    }
 }
