@@ -16,12 +16,10 @@
     <div class="dropdown">
         <button class="dropbtn">Our Services</button>
         <div class="dropdown-content">
-            <a class="drop" href="http://localhost:8080/Project/">Home</a>
-            <a class="drop" href="http://localhost:8080/Project/register/">Registration</a>
-            <a class="drop" href="http://localhost:8080/Project/recycle">Recycling Activity </a>
-            <a class="drop" href="http://localhost:8080/Project/electricity">ElectricityConsumtion </a>
-			<a class="drop" href="http://localhost:8080/Project/water"> Water Management </a>
-            <a class="drop" href="#service3">Generate Report</a>
+            <a class="drop" href="http://localhost:8080/Project/admin/">Home</a>
+            <a class="drop" href="http://localhost:8080/Project/admin/add">Add Activity</a>
+            <a class="drop" href="http://localhost:8080/Project/admin/view-activities">View Activity</a>
+            <a class="drop" href="http://localhost:8080/Project/admin/approveBills">Generate Report</a>
             <a class="drop" href="http://localhost:8080/Project/logout">Logout</a>
         </div>
     </div>

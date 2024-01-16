@@ -14,11 +14,11 @@
 <body>
 
     
-    <jsp:include page="header.jsp" />
+    <jsp:include page="../headerfooter/header.jsp" />
 
 <div class="container">
     <div>
-        <form id="FormBox"  action="http://localhost:8080/Project/add/activity" enctype="multipart/form-data" method="post">
+        <form id="FormBox"  action="http://localhost:8080/Project/admin/activity" enctype="multipart/form-data" method="post">
             <div class="leg">
                 <legend>Add Activity</legend>
             </div>
@@ -44,7 +44,7 @@
 </div>
 
 
-<jsp:include page="footer.jsp" />
+<jsp:include page="../headerfooter/footer.jsp" />
     
     
     

@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -45,13 +46,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.permitAll()
 		.antMatchers("/register/**")
 		.permitAll()
+		.antMatchers("/admin/**").hasAuthority("ADMIN")
 		.anyRequest().authenticated()
+		.and()
+		.formLogin()
+        .defaultSuccessUrl("/")
+        .successHandler((request, response, authentication) -> {
+            for (GrantedAuthority auth : authentication.getAuthorities()) {
+                if (auth.getAuthority().equals("ADMIN")) {
+                    response.sendRedirect("http://localhost:8080/Project/admin/");
+                }else {
+                	response.sendRedirect("http://localhost:8080/Project/");
+                }
+            }
+        })
 		.and()
 		.logout()
 		.permitAll()
 		.and().csrf().disable()
 		; 
-		
+	
 		
 
 	}

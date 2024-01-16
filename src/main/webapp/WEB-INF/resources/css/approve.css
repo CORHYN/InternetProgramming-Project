@@ -1,0 +1,13 @@
+div.report-container {
+  display: flex;
+  justify-content: center;
+}
+
+.report-box {
+  display: flex;
+  background-color: aquamarine;
+  width: 400px;
+  height: 60vh;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
