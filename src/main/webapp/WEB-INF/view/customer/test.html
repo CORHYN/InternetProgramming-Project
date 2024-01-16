@@ -1,113 +1,87 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drag and Drop File Upload</title>
+  <title>Login Page</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      background-color: #f1f1f1;
       margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
     }
 
-    #drop-area {
-      border: 2px dashed #ccc;
+    .login-container {
+      background-color: #fff;
       border-radius: 8px;
-      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 300px;
+      max-width: 100%;
       text-align: center;
-      cursor: pointer;
+      padding: 20px;
+      box-sizing: border-box;
     }
 
-    #drop-area.highlight {
-      border-color: #007BFF;
-      background-color: #f0f9ff;
+    h2 {
+      color: #333;
     }
 
-    #file-input {
-      display: none;
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      box-sizing: border-box;
     }
 
-    #file-label {
-      display: block;
-      margin-top: 16px;
-      font-size: 14px;
-      color: #666;
-    }
-
-    #file-list {
-      margin-top: 16px;
-    }
-
-    .file-item {
-      margin-bottom: 8px;
-    }
-
-    #select-button {
-      display: inline-block;
-      margin-top: 16px;
-      padding: 10px 20px;
-      background-color: #007BFF;
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4caf50;
       color: #fff;
       border: none;
-      border-radius: 5px;
+      border-radius: 4px;
       cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .register-link {
+      margin-top: 15px;
+      color: #333;
+      text-decoration: none;
+      display: inline-block;
     }
   </style>
 </head>
 <body>
 
-<div id="drop-area" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
-  <div>Drag &amp; Drop files here or click to select</div>
-  <input type="file" id="file-input" multiple onchange="handleFiles(this.files)">
-  <label for="file-input" id="file-label">Choose a file</label>
-  <ul id="file-list"></ul>
-  <button id="select-button" onclick="document.getElementById('file-input').click()">Select File</button>
+<div class="login-container">
+  <h2>Login</h2>
+  <form   th:action="@{/login}" method="post">
+    <input type="text" placeholder="Username" name="username" required>
+    <input type="password" placeholder="Password" name="password" required>
+    <button type="submit" value="Log in">Login</button>
+
+    <div class="login-buttons">
+      <input type="submit" value="Log in" />
+      <input
+        type="button"
+        value="Register"
+        onclick=" window.location.href = 'http://localhost:8080/Project/register/'"
+      />
+    </div>
+
+  </form>
+  
 </div>
-
-<script>
-  function handleDragOver(event) {
-    event.preventDefault();
-    document.getElementById('drop-area').classList.add('highlight');
-  }
-
-  function handleDragLeave(event) {
-    event.preventDefault();
-    document.getElementById('drop-area').classList.remove('highlight');
-  }
-
-  function handleDrop(event) {
-    event.preventDefault();
-    document.getElementById('drop-area').classList.remove('highlight');
-    handleFiles(event.dataTransfer.files);
-  }
-
-  function handleFiles(files) {
-    const fileList = document.getElementById('file-list');
-
-    fileList.innerHTML = '';
-
-    for (const file of files) {
-      const listItem = document.createElement('li');
-      listItem.className = 'file-item';
-      listItem.textContent = `${file.name} (${formatBytes(file.size)})`;
-      fileList.appendChild(listItem);
-    }
-  }
-
-  function formatBytes(bytes) {
-    const k = 1024;
-    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-
-    if (bytes === 0) return '0 Byte';
-    const i = parseInt(Math.floor(Math.log(bytes) / Math.log(k)));
-    return Math.round(bytes / Math.pow(k, i)) + ' ' + sizes[i];
-  }
-</script>
 
 </body>
 </html>

@@ -13,7 +13,7 @@
 <body  style="background-image: url('http://localhost:8080/Project/resources/images/homepage-pic.png');  
     background-size: cover;
     background-position: center;">
-<jsp:include page="header.jsp" />
+<jsp:include page="../header/header.jsp" />
 	  <div class="main-cotainer">
         
         <div class="title" style="margin-top: 5vh ; border-radius: 10px 10px 0 0;">
@@ -69,7 +69,7 @@
 
     </div>
    
-<jsp:include page="footer.jsp" />	
+<jsp:include page="../footer/footer.jsp" />	
 	
 </body>
 </html>

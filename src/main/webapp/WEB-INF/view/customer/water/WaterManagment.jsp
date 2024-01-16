@@ -11,7 +11,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
     <link rel="stylesheet" href="<c:url value='/resources/css/styles.css' />" />
   </head>
   <body>
-    <jsp:include page="header.jsp" />
+    <jsp:include page="../header/header.jsp" />
 
     <div class="container">
       <div>
@@ -64,7 +64,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
       </div>
     </div>
 
-    <jsp:include page="footer.jsp" />
+<jsp:include page="../footer/footer.jsp" />	
 
     <script>
       function handleDragOver(event) {

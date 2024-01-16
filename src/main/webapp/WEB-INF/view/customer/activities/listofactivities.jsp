@@ -17,7 +17,7 @@
   	 <link rel="stylesheet" href="<c:url value='/resources/css/listOfActivities.css' />">
 </head>
 <body >
-<jsp:include page="header.jsp" />
+<jsp:include page="../header/header.jsp" />
 
 
 <% List<Activity> activityList = (List<Activity>) request.getAttribute("activityList"); %>
@@ -51,7 +51,7 @@
 </div>
 
 
-<jsp:include page="footer.jsp" />
+<jsp:include page="../footer/footer.jsp" />
 
 </body>
 </html>
