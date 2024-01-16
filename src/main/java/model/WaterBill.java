@@ -8,76 +8,63 @@ import java.sql.SQLException;
 
 import com.mysql.cj.jdbc.Blob;
 
-public class ElectricityBIll {
+public class WaterBill {
 	private int id;
 	private String email;
-	private int electricity;
+	private int water;
 	private Blob file;
 	private String vstatus;
 	private String submit_date;
-
-	public ElectricityBIll() {
+	
+	public WaterBill() {
 		super();
 	}
-
-	public ElectricityBIll(int id, String email, int electricity, Blob file, String vstatus, String submit_date) {
+	public WaterBill(int id, String email, int water, Blob file, String vstatus, String submit_date) {
 		super();
 		this.id = id;
 		this.email = email;
-		this.electricity = electricity;
+		this.water = water;
 		this.file = file;
 		this.vstatus = vstatus;
 		this.submit_date = submit_date;
 	}
-
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 	public String getEmail() {
 		return email;
 	}
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public int getElectricity() {
-		return electricity;
+	public int getWater() {
+		return water;
 	}
-
-	public void setElectricity(int electricity) {
-		this.electricity = electricity;
+	public void setWater(int water) {
+		this.water = water;
 	}
-
 	public Blob getFile() {
 		return file;
 	}
-
 	public void setFile(Blob file) {
 		this.file = file;
 	}
-
 	public String getVstatus() {
 		return vstatus;
 	}
-
 	public void setVstatus(String vstatus) {
 		this.vstatus = vstatus;
 	}
-
 	public String getSubmit_date() {
 		return submit_date;
 	}
-
 	public void setSubmit_date(String submit_date) {
 		this.submit_date = submit_date;
 	}
-
+	
 	public String getBillFile() throws SQLException, IOException {
 		if (file == null) {
 			// Handle the case where activityFile is null, e.g., return an error message or
@@ -86,7 +73,7 @@ public class ElectricityBIll {
 		}
 		String downloadsFolder = System.getProperty("user.home")
 				+ "\\Documents\\Project\\Project\\src\\main\\webapp\\WEB-INF\\resources\\files\\";
-		String fileName = this.id + "electricity" + this.submit_date + ".pdf";
+		String fileName = this.id + "water" + this.submit_date + ".pdf";
 		String filePath = downloadsFolder + fileName;
 
 		try (InputStream inputStream = file.getBinaryStream();
@@ -102,5 +89,4 @@ public class ElectricityBIll {
 			return "http://localhost:8080/Project/resources/files/" + fileName;
 		}
 	}
-
 }
