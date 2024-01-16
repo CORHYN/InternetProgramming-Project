@@ -9,24 +9,32 @@
     />
   </head>
   <body>
+  
     <%--
     <div th:if="${param.error}">Invalid username and password.</div>
     --%> <%--
     <div th:if="${param.logout}">You have been logged out.</div>
     --%>
-    <form class="login-page-box" th:action="@{/login}" method="post">
-      <label for="username">Email</label>
-      <input type="text" name="username" placeholder="Email" />
-      <label for="password">Password</label>
-      <input type="password" name="password" placeholder="Password" />
-      <div class="login-buttons">
-        <input type="submit" value="Log in" />
-        <input
-          type="button"
-          value="Register"
-          onclick=" window.location.href = 'http://localhost:8080/Project/register/'"
-        />
-      </div>
-    </form>
+    <div class="login-container">
+      <h2>Login</h2>
+      <form   th:action="@{/login}" method="post">
+        <input type="text" placeholder="Username" name="username" required>
+        <input type="password" placeholder="Password" name="password" required>
+    
+        <div class="login-buttons">
+          <input type="submit" value="Log in" />
+          <input
+            type="button"
+            value="Register"
+            onclick=" window.location.href = 'http://localhost:8080/Project/register/'"
+          />
+        </div>
+    
+      </form>
+      
+    </div>
+
+
+    
   </body>
 </html>

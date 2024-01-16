@@ -84,7 +84,7 @@ public class Activity {
 		        // Handle the case where activityFile is null, e.g., return an error message or throw an exception
 		        return "Error: Activity file is null";
 		    }
-		String downloadsFolder = System.getProperty("user.home") + "\\Documents\\Project\\Project\\src\\main\\webapp\\WEB-INF\\resources\\files\\";
+		String downloadsFolder = System.getProperty("user.home") + "\\Documents\\Project\\src\\main\\webapp\\WEB-INF\\resources\\files\\";
         String fileName = this.id + this.activityName +".pdf";
         String filePath = downloadsFolder + fileName;
 
