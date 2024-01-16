@@ -32,4 +32,5 @@ public class CarbonFootprintDao {
 		String sql = "INSERT INTO recycle(email, recycle, file, vstatus, submit_date) VALUES(?, ?, ?, ?, ?)";
 		int row = jdbcTemplate.update(sql,email, recycle, file, "PENDING", formatter.format(date));
 	}
+	
 }

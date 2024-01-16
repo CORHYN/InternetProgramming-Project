@@ -15,7 +15,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
   </head>
   <body>
     <jsp:include page="../headerfooter/header.jsp" />
-	<% List<User> list = (List<User>) request.getAttribute("list"); %>>
+	<% List<User> list = (List<User>) request.getAttribute("list"); %>
     <div class="report-container">
       <div class="report-box">
       <table>
