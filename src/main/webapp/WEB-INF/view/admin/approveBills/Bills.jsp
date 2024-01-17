@@ -32,15 +32,15 @@
 					%>
 					<tr>
 						<td><%=electricitybill.getElectricity()%></td>
+						<td><%=electricitybill.getVstatus()%></td>
 						<td><a href="<%=electricitybill.getBillFile()%>"
 							download="electricity.pdf">Download</a></td>
 						<td>
 							<form
-								action="http://localhost:8080/Project/admin/approveTheBills/approval"
-								method="post">
+								action="http://localhost:8080/Project/admin/approveTheBills"  method="post">
 								<input type="hidden" name="email" value="<%= electricitybill.getEmail()%>">
-								<button vlaue="approved" name="choice">Approve</button>
-								<button vlaue="rejected" name="choice">Reject</button>
+								<button type="submit" value="approved" name="choice">Approve</button>
+								<button type="submit" value="rejected" name="choice">Reject</button>
 							</form>
 						</td>
 					</tr>

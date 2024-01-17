@@ -19,7 +19,7 @@
             <a class="drop" href="http://localhost:8080/Project/admin/">Home</a>
             <a class="drop" href="http://localhost:8080/Project/admin/add">Add Activity</a>
             <a class="drop" href="http://localhost:8080/Project/admin/view-activities">View Activity</a>
-            <a class="drop" href="http://localhost:8080/Project/admin/approveBills">Generate Report</a>
+            <a class="drop" href="http://localhost:8080/Project/admin/approveBills">View Bill Approval</a>
             <a class="drop" href="http://localhost:8080/Project/logout">Logout</a>
         </div>
     </div>
