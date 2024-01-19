@@ -31,6 +31,10 @@ public class WaterBill {
 	public int getId() {
 		return id;
 	}
+	public String getBillName()
+	{
+		return "Water Bill";
+	}
 	public void setId(int id) {
 		this.id = id;
 	}
