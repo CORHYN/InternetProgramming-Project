@@ -33,7 +33,7 @@ private final CarbonFootprintDao calculatordao;
         	System.out.println("File is Not Empty , Trying to upload");
             byte[] bytes = file.getBytes();
             calculatordao.storeElectricityBill(authentication.getName(), electricity, bytes);
-			return new RedirectView("http://localhost:8080/Project/water");
+			return new RedirectView("http://localhost:8080/Project/");
        } else {
     	   System.out.println("File is Empty");
     	   return new RedirectView("http://localhost:8080/Project/electricity");
@@ -46,7 +46,7 @@ private final CarbonFootprintDao calculatordao;
 		if (!file.isEmpty()) {
             byte[] bytes = file.getBytes();
 			calculatordao.storewaterbill(authentication.getName(), water, bytes);
-			return new RedirectView("http://localhost:8080/Project/recycle");
+			return new RedirectView("http://localhost:8080/Project/");
        } else {
     	   return new RedirectView("http://localhost:8080/Project/water");
        }

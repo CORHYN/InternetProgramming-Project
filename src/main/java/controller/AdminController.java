@@ -32,6 +32,7 @@ import model.CheckBoxForm;
 import model.ElectricityBIll;
 import model.RecycleBill;
 import model.User;
+import model.UserReport;
 import model.WaterBill;
 import service.CarbonFootprintDao;
 import service.UserDao;
@@ -138,7 +139,7 @@ public class AdminController {
 		return "admin/approveBills/Bills";
 	}
 	
-	@GetMapping("/viewGenerateReport")
+	@RequestMapping("/viewGenerateReport")
 	public String landingPage3(Model model) {
 		List<User> list = userdao.loadUserInfoForBillApproval();
 		model.addAttribute("list", list);
@@ -148,10 +149,40 @@ public class AdminController {
 	@PostMapping(value = "/generateReports")
 	public String generateReport(Model model,@ModelAttribute("checkBoxForm") CheckBoxForm checkBoxForm) {
 		System.out.println("POST /generateReport " + checkBoxForm.getEmail() + "In CheckForm Mapping");
-		for(String x: checkBoxForm.getSelectedValues()) {
-			System.out.println(x);
+		int totalElecConsumption = 0;
+		int totalWaterConsumption = 0;
+		int totalRecConsumption = 0;
+		int recCount = 0;
+		for(int x: checkBoxForm.getElectricityID()) {
+			System.out.println("electricity id : " + x);
+			ElectricityBIll obj = carbondao.getElectricityBill(checkBoxForm.getEmail(), x);
+			totalElecConsumption += obj.getElectricity();
 		}
-		List<ElectricityBIll> electricity_list = carbondao.getElectricityBill(checkBoxForm.getEmail());
+		for(int x: checkBoxForm.getWaterID()) {
+			System.out.println("water id : " + x);
+			WaterBill obj = carbondao.getWaterBill(checkBoxForm.getEmail(), x);
+			totalWaterConsumption += obj.getWater();
+		}
+		for(int x: checkBoxForm.getRecycleID()) {
+			System.out.println("recycle id : " + x);
+			recCount++;
+			RecycleBill obj = carbondao.getRecycleBill(checkBoxForm.getEmail(), x);
+			totalRecConsumption += obj.getRecycle();
+			System.out.println("recycle value : " + obj.getRecycle());
+		}
+		System.out.println(totalRecConsumption);
+		totalElecConsumption = totalElecConsumption*105;
+		totalRecConsumption = (totalRecConsumption/(100*recCount))*100;
+		System.out.println(totalElecConsumption);
+		System.out.println(totalRecConsumption);
+		carbondao.generateNewReport(checkBoxForm.getEmail(), totalElecConsumption, totalWaterConsumption, totalRecConsumption);
+		model.addAttribute("success", true);
+		List<ElectricityBIll> electricity_list = carbondao.getElectricityBillApproved(checkBoxForm.getEmail());
+		List<WaterBill> water_list = carbondao.getWaterBillApproved(checkBoxForm.getEmail());
+		List<RecycleBill> recycle_list = carbondao.getRecycleBillApproved(checkBoxForm.getEmail());
+		List<UserReport> reports = carbondao.getUserReport(checkBoxForm.getEmail());
+		model.addAttribute("water_list", water_list);
+		model.addAttribute("recycle_list", recycle_list);
 		model.addAttribute("electricity_list", electricity_list);
 		model.addAttribute("email",checkBoxForm.getEmail());
 		return "admin/GenerateBill/Bills";
@@ -162,7 +193,11 @@ public class AdminController {
 		System.out.println("POST /generateReport " + email );
 		CheckBoxForm checkBoxForm = new CheckBoxForm();
         model.addAttribute("checkBoxForm", checkBoxForm);
-		List<ElectricityBIll> electricity_list = carbondao.getElectricityBill(email);
+		List<ElectricityBIll> electricity_list = carbondao.getElectricityBillApproved(email);
+		List<WaterBill> water_list = carbondao.getWaterBillApproved(email);
+		List<RecycleBill> recycle_list = carbondao.getRecycleBillApproved(email);
+		model.addAttribute("water_list", water_list);
+		model.addAttribute("recycle_list", recycle_list);
 		model.addAttribute("electricity_list", electricity_list);
 		model.addAttribute("email",email);
 		return "admin/GenerateBill/Bills";

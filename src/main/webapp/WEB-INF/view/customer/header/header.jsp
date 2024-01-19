@@ -26,7 +26,7 @@
             <a class="drop" href="http://localhost:8080/Project/recycle">Recycling Activity </a>
             <a class="drop" href="http://localhost:8080/Project/electricity">ElectricityConsumtion </a>
 			<a class="drop" href="http://localhost:8080/Project/water"> Water Management </a>
-            <a class="drop" href="#service3">Generate Report</a>
+            <a class="drop" href="#service3">View Report</a>
             
         </div>
     </div>

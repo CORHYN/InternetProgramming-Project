@@ -24,6 +24,8 @@
 	<jsp:include page="../headerfooter/header.jsp" />
 	<%
 		List<ElectricityBIll> electricity_list = (List<ElectricityBIll>) request.getAttribute("electricity_list");
+		List<WaterBill> water_list = (List<WaterBill>) request.getAttribute("water_list");
+		List<RecycleBill> recycle_list = (List<RecycleBill>) request.getAttribute("recycle_list");
 		String email = (String) request.getAttribute("email");
 	%>
 
@@ -42,18 +44,79 @@
 						<th colspan="5">Electricity</th>
 					</thead>
 					<tbody>
+					<thead>
+							<th>ID</th>
+							<th>Value</th>
+							<th>Date</th>
+						</thead>
 						<%
 							for (ElectricityBIll electricitybill : electricity_list) {
 						%>
 						<tr>
 							<td><%=electricitybill.getId()%></td>
 							<td><%=electricitybill.getElectricity()%></td>
+							<td><%=electricitybill.getSubmit_date()%></td>
 							<td>
+									<form:checkbox path="electricityID" value="<%=electricitybill.getId()%>" />
+							</td>
+						</tr>
+						<%
+							}
+						%>
+
+					</tbody>
+				</table>
+				<table id="water">
+					<thead>
+						<th colspan="5" class="table-head">Water</th>
+					</thead>
+					<tbody>
+
+						<thead>
+							<th>ID</th>
+							<th>Value</th>
+							<th>Date</th>
+						</thead>
+						<%
+							for (WaterBill waterbill : water_list) {
+						%>
 								
-									<form:checkbox path="selectedValues" value="<%=electricitybill.getId()%>" />
+						<tr>
+							<td><%=waterbill.getId()%></td>
+							<td><%=waterbill.getWater()%></td>
+							<td><%=waterbill.getSubmit_date()%></td>
+							<td>
+									<form:checkbox path="waterID" value="<%=waterbill.getId()%>" />
+							</td>
+						</tr>
+						<%
+							}
+						%>
+
+					</tbody>
+				</table>
+				<table id="recycle">
+					<thead>
+						<th colspan="5" class="table-head">Recycle</th>
+					</thead>
+					<tbody>
+
+						<thead>
+					<th>ID</th>
+							<th>Value</th>
+							<th>Date</th>
+					
+				</thead>	
+						<%
+							for (RecycleBill recyclebill : recycle_list) {
+						%>
 						
-									
-								
+						<tr>
+							<td><%=recyclebill.getId()%></td>
+							<td><%=recyclebill.getRecycle()%></td>
+							<td><%=recyclebill.getSubmit_date()%></td>
+							<td>
+									<form:checkbox path="recycleID" value="<%=recyclebill.getId()%>" />
 							</td>
 						</tr>
 						<%

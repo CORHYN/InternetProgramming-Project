@@ -8,6 +8,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import model.ElectricityBIll;
 import model.RecycleBill;
+import model.UserReport;
 import model.WaterBill;
 
 import java.text.SimpleDateFormat;
@@ -46,18 +47,54 @@ public class CarbonFootprintDao {
 				new BeanPropertyRowMapper<ElectricityBIll>(ElectricityBIll.class), email);
 		return list;
 	}
+	
+	public List<ElectricityBIll> getElectricityBillApproved(String email) {
+		String sql = "SELECT * FROM electricity WHERE email=? AND vstatus='APPROVED'";
+		List<ElectricityBIll> list = jdbcTemplate.query(sql,
+				new BeanPropertyRowMapper<ElectricityBIll>(ElectricityBIll.class), email);
+		return list;
+	}
+	
+	public ElectricityBIll getElectricityBill(String email,int id) {
+		String sql = "SELECT * FROM electricity WHERE email=? AND id=?";
+		ElectricityBIll obj = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<ElectricityBIll>(ElectricityBIll.class), email,id);
+		return obj;
+	}
 
 	public List<WaterBill> getWaterBill(String email) {
 		String sql = "SELECT * FROM water WHERE email=?";
 		List<WaterBill> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<WaterBill>(WaterBill.class), email);
 		return list;
 	}
+	
+	public List<WaterBill> getWaterBillApproved(String email) {
+		String sql = "SELECT * FROM water WHERE email=? AND vstatus='APPROVED'";
+		List<WaterBill> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<WaterBill>(WaterBill.class), email);
+		return list;
+	}
+	
+	public WaterBill getWaterBill(String email,int id) {
+		String sql = "SELECT * FROM water WHERE email=? AND id=?";
+		WaterBill obj = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<WaterBill>(WaterBill.class), email, id);
+		return obj;
+	}
 
 	public List<RecycleBill> getRecycleBill(String email) {
 		String sql = "SELECT * FROM recycle WHERE email=?";
-		List<RecycleBill> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<RecycleBill>(RecycleBill.class),
-				email);
+		List<RecycleBill> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<RecycleBill>(RecycleBill.class), email);
 		return list;
+	}
+	
+	public List<RecycleBill> getRecycleBillApproved(String email) {
+		String sql = "SELECT * FROM recycle WHERE email=? AND vstatus='APPROVED'";
+		List<RecycleBill> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<RecycleBill>(RecycleBill.class), email);
+		return list;
+	}
+	
+	public RecycleBill getRecycleBill(String email,int id) {
+		String sql = "SELECT * FROM recycle WHERE email=? AND id=?";
+		RecycleBill obj = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<RecycleBill>(RecycleBill.class), email, id);
+		return obj;
 	}
 
 	public void updateElectricityStatusApproved(String email, int id) {
@@ -103,6 +140,16 @@ public class CarbonFootprintDao {
 	}
 	
 	
+	public void generateNewReport(String email,int totalElecConsumption, int totalWaterConsumption,int totalRecConsumption) {
+		System.out.println(email + "In DB query" + "generateNewReport");
+		String sql = "INSERT INTO user_reports(email, electricity_consumtion, water_consumtion,recycle_consumtion) VALUES (?, ?, ?, ?)";
+		int row = jdbcTemplate.update(sql, email, totalElecConsumption,totalWaterConsumption,totalRecConsumption);
+	}
 	
+	public List<UserReport> getUserReport(String email){
+		String sql = "SELECT * FROM user_reports WHERE email=?;";
+		List<UserReport> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<UserReport>(UserReport.class), email);
+		return list;
+	}
 
 }
