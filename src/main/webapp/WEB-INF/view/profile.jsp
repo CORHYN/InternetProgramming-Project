@@ -17,6 +17,8 @@
 	rel="stylesheet">
 </head>
 <body>
+
+<jsp:include page="customer/header/header.jsp" />
 <% List<User> userList = (List<User>) request.getAttribute("userList"); %>
 
 <div class="container">
@@ -43,6 +45,6 @@
         <button type="submit">Save Changes</button>
     </form>
 </div>
-
+<jsp:include page="customer/footer/footer.jsp" />
 </body>
 </html>
