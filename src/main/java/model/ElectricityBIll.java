@@ -41,6 +41,10 @@ public class ElectricityBIll {
 	public String getEmail() {
 		return email;
 	}
+	public String getBillName()
+	{
+		return "Electricity Bill";
+	}
 
 	public void setEmail(String email) {
 		this.email = email;

@@ -28,6 +28,11 @@ public class RecycleBill {
 		this.vstatus = vstatus;
 		this.submit_date = submit_date;
 	}
+	public String getBillName()
+	{
+		return "Recycle Bill";
+	}
+
 	public int getId() {
 		return id;
 	}

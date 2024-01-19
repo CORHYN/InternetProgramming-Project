@@ -21,7 +21,7 @@
             <a class="drop" href="http://localhost:8080/Project/recycle">Recycling Activity </a>
             <a class="drop" href="http://localhost:8080/Project/electricity">ElectricityConsumtion </a>
 			<a class="drop" href="http://localhost:8080/Project/water"> Water Management </a>
-            <a class="drop" href="#service3">Generate Report</a>
+            <a class="drop" href="http://localhost:8080/Project/view-customer-bill">View Bills</a>
             
         </div>
     </div>
@@ -34,7 +34,7 @@
                 <img  src="<c:url value='/resources/images/user-icon.png' />">USER
             </a>
             <div class="dropdown-content" style="margin-top: 0px">
-                <a class="drop" href="#">Profile</a>
+                <a class="drop" href="http://localhost:8080/Project/view/user">Profile</a>
                 <a class="drop" href="http://localhost:8080/Project/logout">Logout</a>
             </div>
         </div>
