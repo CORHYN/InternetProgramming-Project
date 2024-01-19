@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +25,7 @@ public class UserDao {
 		int row1 = jdbcTemplate.update(sql1, email, new BCryptPasswordEncoder().encode(password), true);
 		int row2 = jdbcTemplate.update(sql2, email, authority);
 		int row3 = jdbcTemplate.update(sql3,email, fullName,dob, phone, address);
-		return "Rows Effected :" + row1 + row2;
+		return "Rows Effected :" + row1 + row2 +row3;
 	}
 	
 	public List<User> loadUserInfoForBillApproval() {
@@ -31,5 +33,15 @@ public class UserDao {
 		List<User> list = jdbcTemplate.query(sql,new BeanPropertyRowMapper<User>(User.class));
 		return list;
 	}
+	
+	public List<User> viewUser() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+	    String userEmail = authentication.getName();
+	    //String userEmail = "arshad@email.com";
+	    String sql = "SELECT * FROM user_info WHERE email = ?";
+	    List<User> list = jdbcTemplate.query(sql, new Object[]{userEmail}, new BeanPropertyRowMapper<>(User.class));   
+	    return list;
+	}
+
 	
 }
