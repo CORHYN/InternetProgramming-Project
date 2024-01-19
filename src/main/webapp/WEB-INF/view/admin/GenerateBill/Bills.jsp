@@ -35,7 +35,7 @@
 				oninput="filterTable('electricity')"
 				placeholder="Search by ID or Status">
 			<div class="report-box">
-
+				<form action="http://localhost:8080/Project/admin/generateReport" method="post">
 				<table id="electricity">
 					<thead>
 						<th colspan="5">Electricity</th>
@@ -47,20 +47,14 @@
 						<tr>
 							<td><%=electricitybill.getId()%></td>
 							<td><%=electricitybill.getElectricity()%></td>
-							<td><%=electricitybill.getVstatus()%></td>
-							<td><a href="<%=electricitybill.getBillFile()%>"
-								download="electricity.pdf">Download</a></td>
 							<td>
-								<form
-									action="http://localhost:8080/Project/admin/approveTheBills"
-									method="post">
-									<input type="hidden" name="email"
-										value="<%=electricitybill.getEmail()%>"> <input
-										type="hidden" name="id" value="<%=electricitybill.getId()%>">
+								
+									<input type="hidden" name="email" value="<%=electricitybill.getEmail()%>"> 
+									<input type="hidden" name="id" value="<%=electricitybill.getId()%>">
 									<input type="hidden" name="type" value="electricity">
 									<button type="submit" value="approved" name="choice">Approve</button>
 									<button type="submit" value="rejected" name="choice">Reject</button>
-								</form>
+								
 							</td>
 						</tr>
 						<%
@@ -69,85 +63,7 @@
 
 					</tbody>
 				</table>
-			</div>
-		</div>
-		<div class="report-search-container">
-			<input type="text" id="water-search-input" class="search-input"
-				oninput="filterTable('water')" placeholder="Search by ID or Status">
-			<div class="report-box">
-				<table id="water">
-					<thead>
-						<th colspan="5">Water</th>
-					</thead>
-					<tbody>
-						<%
-							for (WaterBill waterbill : water_list) {
-						%>
-						<tr>
-							<td><%=waterbill.getId()%></td>
-							<td><%=waterbill.getWater()%></td>
-							<td><%=waterbill.getVstatus()%></td>
-							<td><a href="<%=waterbill.getBillFile()%>"
-								download="water.pdf">Download</a></td>
-							<td>
-								<form
-									action="http://localhost:8080/Project/admin/approveTheBills"
-									method="post">
-									<input type="hidden" name="email"
-										value="<%=waterbill.getEmail()%>"> <input
-										type="hidden" name="type" value="water"> <input
-										type="hidden" name="id" value="<%=waterbill.getId()%>">
-									<button type="submit" value="approved" name="choice">Approve</button>
-									<button type="submit" value="rejected" name="choice">Reject</button>
-								</form>
-							</td>
-						</tr>
-						<%
-							}
-						%>
-
-					</tbody>
-				</table>
-			</div>
-		</div>
-		<div class="report-search-container">
-			<input type="text" id="recycle-search-input" class="search-input"
-				oninput="filterTable('recycle')"
-				placeholder="Search by ID or Status">
-			<div class="report-box">
-				<table id="recycle">
-					<thead>
-						<th colspan="5">Recycle</th>
-					</thead>
-					<tbody>
-						<%
-							for (RecycleBill recyclebill : recycle_list) {
-						%>
-						<tr>
-							<td><%=recyclebill.getId()%></td>
-							<td><%=recyclebill.getRecycle()%></td>
-							<td><%=recyclebill.getVstatus()%></td>
-							<td><a href="<%=recyclebill.getBillFile()%>"
-								download="electricity.pdf">Download</a></td>
-							<td>
-								<form
-									action="http://localhost:8080/Project/admin/approveTheBills"
-									method="post">
-									<input type="hidden" name="email"
-										value="<%=recyclebill.getEmail()%>"> <input
-										type="hidden" name="type" value="recycle"> <input
-										type="hidden" name="id" value="<%=recyclebill.getId()%>">
-									<button type="submit" value="approved" name="choice">Approve</button>
-									<button type="submit" value="rejected" name="choice">Reject</button>
-								</form>
-							</td>
-						</tr>
-						<%
-							}
-						%>
-
-					</tbody>
-				</table>
+				</form>
 			</div>
 		</div>
 	</div>

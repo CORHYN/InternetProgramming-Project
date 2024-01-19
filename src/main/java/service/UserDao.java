@@ -27,7 +27,7 @@ public class UserDao {
 	}
 	
 	public List<User> loadUserInfoForBillApproval() {
-		String sql = "SELECT authorities.email, user_info.fullname FROM authorities RIGHT JOIN user_info ON authorities.email = user_info.email;";
+		String sql = "SELECT authorities.email, user_info.fullname, user_info.dob, user_info.phone, user_info.address FROM authorities RIGHT JOIN user_info ON authorities.email = user_info.email;";
 		List<User> list = jdbcTemplate.query(sql,new BeanPropertyRowMapper<User>(User.class));
 		return list;
 	}

@@ -1,49 +1,55 @@
 @charset "ISO-8859-1";
 
-
-body
-{
-    background-image: url('http://localhost:8080/Project/resources/images/homepage-pic.png');  
-    background-size: cover;
-    background-position: center;
+body {
+	background-image:
+		url('http://localhost:8080/Project/resources/images/homepage-pic.png');
+	background-size: cover;
+	background-position: center;
+	font-family: 'Comfortaa', sans-serif;
+	font-family: 'Montserrat', sans-serif;
+	font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto Mono', monospace;
+	font-family: 'Sora', sans-serif;
 }
 
-
 .main-container {
-            font-family: Arial, sans-serif;
-            margin: 0px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 80vh;
-            
-        }
+	font-family: 'Comfortaa', sans-serif; font-family : 'Montserrat',
+	sans-serif; font-family : 'Roboto', sans-serif; font-family :
+	'Roboto Mono', monospace; font-family : 'Sora', sans-serif;
+	margin: 0px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 80vh;
+	font-family: 'Montserrat', sans-serif;
+	font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto Mono', monospace;
+	font-family: 'Sora', sans-serif;
+}
 
+table {
+	border-collapse: collapse;
+	width: 80%;
+	margin: 20px;
+	background-color: #fff;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-        table {
-            border-collapse: collapse;
-            width: 80%;
-            margin: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+th, td {
+	padding: 12px;
+	text-align: left;
+}
 
-        th, td {
-            
-            padding: 12px;
-            text-align: left;
-        }
+th {
+	background-color: #75A241;
+	color: white;
+}
 
-        th {
-            background-color:  #75A241;
-            color: white;
-        }
+tr:nth-child(even) {
+	background-color: #e0f1e3;
+}
 
-        tr:nth-child(even) {
-            background-color: #e0f1e3; 
-        }
-
-        tr:nth-child(odd) {
-            background-color: #a5d6a7; 
-        }
+tr:nth-child(odd) {
+	background-color: #a5d6a7;
+}

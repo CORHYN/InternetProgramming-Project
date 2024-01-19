@@ -2,6 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
   <head>
     <title>Please Log In</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Montserrat:ital@1&family=Roboto+Mono:ital@1&family=Roboto:ital,wght@0,100;1,900&family=Sora:wght@300&display=swap" rel="stylesheet">
     <link
       rel="stylesheet"
       type="text/css"

@@ -103,15 +103,30 @@ public class AdminController {
 		return "admin/approveBills/Bills";
 	}
 
-	@PostMapping(value = "/approveTheBills", params = {"email","choice"})
-	public String pullUpAllBills(Model model, @RequestParam String email,String choice) {
+	@PostMapping(value = "/approveTheBills", params = {"email","choice","type","id"})
+	public String pullUpAllBills(Model model, @RequestParam String email,String choice,String type,int id) {
 		System.out.print(email);
 		System.out.print(choice);
-		if(choice.equals("approved")) {
-			carbondao.updateStatusApproved(email);
-		}else if(choice.equals("rejected")) {
-			carbondao.updateStatusRejected(email);
+		if(type.equals("electricity")) {
+			if(choice.equals("approved")) {
+				carbondao.updateElectricityStatusApproved(email,id);
+			}else if(choice.equals("rejected")) {
+				carbondao.updateElectricityStatusRejected(email,id);
+			}
+		}else if(type.equals("water")) {
+			if(choice.equals("approved")) {
+				carbondao.updateWaterStatusApproved(email,id);
+			}else if(choice.equals("rejected")) {
+				carbondao.updateWaterStatusRejected(email,id);
+			}
+		}else if(type.equals("recycle")) {
+			if(choice.equals("approved")) {
+				carbondao.updateRecycleStatusApproved(email,id);
+			}else if(choice.equals("rejected")) {
+				carbondao.updateRecycleStatusRejected(email,id);
+			}
 		}
+		
 		List<ElectricityBIll> electricity_list = carbondao.getElectricityBill(email);
 		List<WaterBill> water_list = carbondao.getWaterBill(email);
 		List<RecycleBill> recycle_list = carbondao.getRecycleBill(email);

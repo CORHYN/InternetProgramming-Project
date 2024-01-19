@@ -1,13 +1,92 @@
 div.report-container {
+  font-family: "Comfortaa", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-family: "Roboto Mono", monospace;
+  font-family: "Sora", sans-serif;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  padding: 3vh 3vw 3vh 3vw;
 }
 
+input[type="text"]{
+	  font-family: "Comfortaa", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-family: "Roboto Mono", monospace;
+  font-family: "Sora", sans-serif;
+}
+
+
 .report-box {
+  font-family: "Comfortaa", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-family: "Roboto Mono", monospace;
+  font-family: "Sora", sans-serif;
   display: flex;
-  background-color: aquamarine;
-  width: 400px;
   height: 60vh;
   margin-top: 20px;
   margin-bottom: 20px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+
+form input[type="submit"], button[type="submit"] {
+	color: black;
+	border: none;
+	padding: 5px 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	cursor: pointer;
+	background: linear-gradient(to left, #45a049 50%, #295a2b 50%) right;
+	background-size: 200%;
+	transition: 0.2s ease-out;
+}
+input[type="submit"]:hover, button[type="submit"]:hover{
+	color: white;
+	border: none;
+	padding: 5px 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	background-position: left;
+}
+
+#searchInput {
+  padding: 5px;
+  margin-bottom: 10px;
+  width: 20%;
+}
+
+th {
+	background-color: #75A241;
+	color: white;
+}
+
+tr:nth-child(even) {
+	background-color: #e0f1e3;
+}
+
+tr:nth-child(odd) {
+	background-color: #a5d6a7;
 }

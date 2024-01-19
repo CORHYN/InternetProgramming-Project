@@ -8,7 +8,6 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import model.ElectricityBIll;
 import model.RecycleBill;
-import model.User;
 import model.WaterBill;
 
 import java.text.SimpleDateFormat;
@@ -61,18 +60,49 @@ public class CarbonFootprintDao {
 		return list;
 	}
 
-	public void updateStatusApproved(String email) {
-		System.out.println(email+"In DB query");
+	public void updateElectricityStatusApproved(String email, int id) {
+		System.out.println(email + "In DB query");
 		String sql = "UPDATE electricity SET vstatus = ? WHERE email=?;";
-		int row = jdbcTemplate.update(sql, "APPROVED",email);
+		int row = jdbcTemplate.update(sql, "APPROVED", email);
 		System.out.println(row);
 	}
 
-	public void updateStatusRejected(String email) {
-		System.out.println(email+"In DB query");
-		String sql = "UPDATE electricity SET vstatus = ? WHERE email=?;";
-		int row = jdbcTemplate.update(sql, "REJECTED",email);
+	public void updateElectricityStatusRejected(String email, int id) {
+		System.out.println(email + "In DB query");
+		String sql = "UPDATE electricity SET vstatus = ? WHERE email=? AND id=?;";
+		int row = jdbcTemplate.update(sql, "REJECTED", email, id);
 		System.out.println(row);
 	}
+
+	public void updateWaterStatusApproved(String email, int id) {
+		System.out.println(email + "In DB query");
+		String sql = "UPDATE water SET vstatus = ? WHERE email=? AND id=?;";
+		int row = jdbcTemplate.update(sql, "APPROVED", email, id);
+		System.out.println(row);
+	}
+
+	public void updateWaterStatusRejected(String email, int id) {
+		System.out.println(email + "In DB query");
+		String sql = "UPDATE water SET vstatus = ? WHERE email=? AND id=?;";
+		int row = jdbcTemplate.update(sql, "REJECTED", email, id);
+		System.out.println(row);
+	}
+
+	public void updateRecycleStatusApproved(String email, int id) {
+		System.out.println(email + "In DB query");
+		String sql = "UPDATE recycle SET vstatus = ? WHERE email=? AND id=?;";
+		int row = jdbcTemplate.update(sql, "APPROVED", email, id);
+		System.out.println(row);
+	}
+
+	public void updateRecycleStatusRejected(String email, int id) {
+		System.out.println(email + "In DB query");
+		String sql = "UPDATE recycle SET vstatus = ? WHERE email=? AND id=?;";
+		int row = jdbcTemplate.update(sql, "REJECTED", email, id);
+		System.out.println(row);
+	}
+	
+	
+	
 
 }
