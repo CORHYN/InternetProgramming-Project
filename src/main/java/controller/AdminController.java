@@ -185,6 +185,7 @@ public class AdminController {
 		model.addAttribute("recycle_list", recycle_list);
 		model.addAttribute("electricity_list", electricity_list);
 		model.addAttribute("email",checkBoxForm.getEmail());
+		model.addAttribute("user_reports", reports);
 		return "admin/GenerateBill/Bills";
 	}
 	
@@ -196,10 +197,15 @@ public class AdminController {
 		List<ElectricityBIll> electricity_list = carbondao.getElectricityBillApproved(email);
 		List<WaterBill> water_list = carbondao.getWaterBillApproved(email);
 		List<RecycleBill> recycle_list = carbondao.getRecycleBillApproved(email);
+		List<UserReport> reports = carbondao.getUserReport(email);
+		for(UserReport report : reports) {
+			System.out.println(report.getElectricity_consumtion());
+		}
 		model.addAttribute("water_list", water_list);
 		model.addAttribute("recycle_list", recycle_list);
 		model.addAttribute("electricity_list", electricity_list);
 		model.addAttribute("email",email);
+		model.addAttribute("user_reports", reports);
 		return "admin/GenerateBill/Bills";
 	}
 	

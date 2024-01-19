@@ -3,9 +3,9 @@ package model;
 public class UserReport {
 	private int id;
 	private String email;
-	private int electricity_consumption;
-	private int water_consumption;
-	private int recycle_consumption;
+	private int electricity_consumtion;
+	private int water_consumtion;
+	private int recycle_consumtion;
 	public UserReport() {
 		
 	}
@@ -21,23 +21,25 @@ public class UserReport {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getElectricity_consumption() {
-		return electricity_consumption;
+	public int getElectricity_consumtion() {
+		return electricity_consumtion;
 	}
-	public void setElectricity_consumption(int electricity_consumption) {
-		this.electricity_consumption = electricity_consumption;
+	public void setElectricity_consumtion(int electricity_consumtion) {
+		this.electricity_consumtion = electricity_consumtion;
 	}
-	public int getWater_consumption() {
-		return water_consumption;
+	public int getWater_consumtion() {
+		return water_consumtion;
 	}
-	public void setWater_consumption(int water_consumption) {
-		this.water_consumption = water_consumption;
+	public void setWater_consumtion(int water_consumtion) {
+		this.water_consumtion = water_consumtion;
 	}
-	public int getRecycle_consumption() {
-		return recycle_consumption;
+	public int getRecycle_consumtion() {
+		return recycle_consumtion;
 	}
-	public void setRecycle_consumption(int recycle_consumption) {
-		this.recycle_consumption = recycle_consumption;
+	public void setRecycle_consumtion(int recycle_consumtion) {
+		this.recycle_consumtion = recycle_consumtion;
 	}
+	
+
 	
 }

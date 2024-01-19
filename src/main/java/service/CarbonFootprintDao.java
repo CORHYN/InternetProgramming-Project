@@ -91,6 +91,19 @@ public class CarbonFootprintDao {
 		return list;
 	}
 	
+	public List<UserReport> getUserReport(String email){
+		System.out.println("getUserReport For Email=" + email);
+		String sql = "SELECT * FROM user_reports WHERE email=?;";
+		List<UserReport> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<UserReport>(UserReport.class), email);
+		return list;
+	}
+	
+	public List<UserReport> getUserWinnerOrder(String email){
+		String sql = "SELECT * FROM user_reports ORDER BY electricity_consumtion,recycle_consumtion DESC";
+		List<UserReport> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<UserReport>(UserReport.class));
+		return list;
+	}
+	
 	public RecycleBill getRecycleBill(String email,int id) {
 		String sql = "SELECT * FROM recycle WHERE email=? AND id=?";
 		RecycleBill obj = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<RecycleBill>(RecycleBill.class), email, id);
@@ -144,12 +157,6 @@ public class CarbonFootprintDao {
 		System.out.println(email + "In DB query" + "generateNewReport");
 		String sql = "INSERT INTO user_reports(email, electricity_consumtion, water_consumtion,recycle_consumtion) VALUES (?, ?, ?, ?)";
 		int row = jdbcTemplate.update(sql, email, totalElecConsumption,totalWaterConsumption,totalRecConsumption);
-	}
+	}	
 	
-	public List<UserReport> getUserReport(String email){
-		String sql = "SELECT * FROM user_reports WHERE email=?;";
-		List<UserReport> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<UserReport>(UserReport.class), email);
-		return list;
-	}
-
 }

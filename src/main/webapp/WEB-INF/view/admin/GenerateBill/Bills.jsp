@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page import="java.util.List"%>
 <%@ page import="model.ElectricityBIll"%>
 <%@ page import="model.WaterBill"%>
 <%@ page import="model.RecycleBill"%>
 <%@ page import="model.CheckBoxForm"%>
+<%@ page import="model.UserReport"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +27,7 @@
 		List<ElectricityBIll> electricity_list = (List<ElectricityBIll>) request.getAttribute("electricity_list");
 		List<WaterBill> water_list = (List<WaterBill>) request.getAttribute("water_list");
 		List<RecycleBill> recycle_list = (List<RecycleBill>) request.getAttribute("recycle_list");
+		List<UserReport> reports = (List<UserReport>) request.getAttribute("user_reports");
 		String email = (String) request.getAttribute("email");
 	%>
 
@@ -38,13 +40,15 @@
 				oninput="filterTable('electricity')"
 				placeholder="Search by ID or Status">
 			<div class="report-box">
-				<form:form modelAttribute="checkBoxForm" action="http://localhost:8080/Project/admin/generateReports" method="post">
-				<table id="electricity">
-					<thead>
-						<th colspan="5">Electricity</th>
-					</thead>
-					<tbody>
-					<thead>
+				<form:form modelAttribute="checkBoxForm"
+					action="http://localhost:8080/Project/admin/generateReports"
+					method="post">
+					<table id="electricity">
+						<thead>
+							<th colspan="5">Electricity</th>
+						</thead>
+						<tbody>
+						<thead>
 							<th>ID</th>
 							<th>Value</th>
 							<th>Date</th>
@@ -56,22 +60,20 @@
 							<td><%=electricitybill.getId()%></td>
 							<td><%=electricitybill.getElectricity()%></td>
 							<td><%=electricitybill.getSubmit_date()%></td>
-							<td>
-									<form:checkbox path="electricityID" value="<%=electricitybill.getId()%>" />
-							</td>
+							<td><form:checkbox path="electricityID"
+									value="<%=electricitybill.getId()%>" /></td>
 						</tr>
 						<%
 							}
 						%>
 
-					</tbody>
-				</table>
-				<table id="water">
-					<thead>
-						<th colspan="5" class="table-head">Water</th>
-					</thead>
-					<tbody>
-
+						</tbody>
+					</table>
+					<table id="water">
+						<thead>
+							<th colspan="5" class="table-head">Water</th>
+						</thead>
+						<tbody>
 						<thead>
 							<th>ID</th>
 							<th>Value</th>
@@ -80,55 +82,82 @@
 						<%
 							for (WaterBill waterbill : water_list) {
 						%>
-								
+
 						<tr>
 							<td><%=waterbill.getId()%></td>
 							<td><%=waterbill.getWater()%></td>
 							<td><%=waterbill.getSubmit_date()%></td>
-							<td>
-									<form:checkbox path="waterID" value="<%=waterbill.getId()%>" />
-							</td>
+							<td><form:checkbox path="waterID"
+									value="<%=waterbill.getId()%>" /></td>
 						</tr>
 						<%
 							}
 						%>
 
-					</tbody>
-				</table>
-				<table id="recycle">
-					<thead>
-						<th colspan="5" class="table-head">Recycle</th>
-					</thead>
-					<tbody>
-
+						</tbody>
+					</table>
+					<table id="recycle">
 						<thead>
-					<th>ID</th>
+							<th colspan="5" class="table-head">Recycle</th>
+						</thead>
+						<tbody>
+						<thead>
+							<th>ID</th>
 							<th>Value</th>
 							<th>Date</th>
-					
-				</thead>	
+
+						</thead>
 						<%
 							for (RecycleBill recyclebill : recycle_list) {
 						%>
-						
+
 						<tr>
 							<td><%=recyclebill.getId()%></td>
 							<td><%=recyclebill.getRecycle()%></td>
 							<td><%=recyclebill.getSubmit_date()%></td>
-							<td>
-									<form:checkbox path="recycleID" value="<%=recyclebill.getId()%>" />
-							</td>
+							<td><form:checkbox path="recycleID"
+									value="<%=recyclebill.getId()%>" /></td>
 						</tr>
 						<%
 							}
 						%>
 
-					</tbody>
-				</table>
-				<form:input path="email" type="hidden" value="<%= email %>"/>
-				<input type="submit" value="Generate" >
+						</tbody>
+					</table>
+					<form:input path="email" type="hidden" value="<%=email%>" />
+					<input type="submit" value="Generate">
 				</form:form>
 			</div>
+		</div>
+		<div class="report-box">
+			<table>
+				<thead>
+					<th colspan="5" class="table-head">Report</th>
+				</thead>
+				<tbody>
+				<thead>
+					<th>ID</th>
+					<th>Electricity Consumption</th>
+					<th>Water Consumption</th>
+					<th>Recycle Consumption</th>
+
+				</thead>
+				<%
+					for (UserReport report : reports) {
+				%>
+
+				<tr>
+					<td><%=report.getId()%></td>
+					<td><%=report.getElectricity_consumtion()%></td>
+					<td><%=report.getWater_consumtion()%></td>
+					<td><%=report.getRecycle_consumtion()%></td>
+				</tr>
+				<%
+					}
+				%>
+
+				</tbody>
+			</table>
 		</div>
 	</div>
 	<script>
