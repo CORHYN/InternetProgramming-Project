@@ -49,7 +49,7 @@
 								action="http://localhost:8080/Project/admin/approveTheBills"
 								method="post">
 								<input type="hidden" name="email" value="<%=user.getEmail()%>">
-								<input type="submit" value="View Bills">
+								<input style="margin-left:8vh;" type="submit" value="View Bills">
 							</form>
 						</td>
 					</tr>

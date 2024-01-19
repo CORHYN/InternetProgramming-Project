@@ -14,7 +14,7 @@
 
 	<nav>
     <div class="dropdown">
-        <button class="dropbtn">Our Services</button>
+        <button style="font-style: italic; font-weight: bold; margin-top: 1vh;" class="dropbtn">Our Services</button>
         <div class="dropdown-content">
             <a class="drop" href="http://localhost:8080/Project/">Home</a>
             <a class="drop" href="http://localhost:8080/Project/register/">Registration</a>
@@ -22,16 +22,22 @@
             <a class="drop" href="http://localhost:8080/Project/electricity">ElectricityConsumtion </a>
 			<a class="drop" href="http://localhost:8080/Project/water"> Water Management </a>
             <a class="drop" href="#service3">Generate Report</a>
-            <a class="drop" href="http://localhost:8080/Project/logout">Logout</a>
+            
         </div>
     </div>
     <div class="mbip-icon">
         <a> <img src="<c:url value='/resources/images/mbip-icon.png' />"></a>
     </div>
-    <h4>MBIP</h4>
-    <div class="user-button">
-        <a> <img src="<c:url value='/resources/images/user-icon.png' />">USER</a>
-    </div>
+    <h4>MBIP(Majlis Bandaraya Iskandar Puteri)</h4>
+    <div class="user-button dropdown">
+            <a>
+                <img  src="<c:url value='/resources/images/user-icon.png' />">USER
+            </a>
+            <div class="dropdown-content" style="margin-top: 0px">
+                <a class="drop" href="#">Profile</a>
+                <a class="drop" href="http://localhost:8080/Project/logout">Logout</a>
+            </div>
+        </div>
 </nav>
 
 

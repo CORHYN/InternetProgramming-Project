@@ -30,23 +30,28 @@
 
 
 	<div class="report-container">
-		<div class="report-search-container">
+		<div class="report-search-container report-box">
 			<input type="text" id="electricity-search-input" class="search-input"
 				oninput="filterTable('electricity')"
 				placeholder="Search by ID or Status">
-			<div class="report-box">
 
 				<table id="electricity">
 					<thead>
-						<th colspan="5">Electricity</th>
+						<th colspan="5" class="table-head">Electricity</th>
 					</thead>
+							<thead>
+					<th>ID</th>
+					<th>Status</th>
+					<th>File</th>
+					<th>Action</th>
+					
+				</thead>
 					<tbody>
 						<%
 							for (ElectricityBIll electricitybill : electricity_list) {
 						%>
 						<tr>
 							<td><%=electricitybill.getId()%></td>
-							<td><%=electricitybill.getElectricity()%></td>
 							<td><%=electricitybill.getVstatus()%></td>
 							<td><a href="<%=electricitybill.getBillFile()%>"
 								download="electricity.pdf">Download</a></td>
@@ -58,8 +63,8 @@
 										value="<%=electricitybill.getEmail()%>"> <input
 										type="hidden" name="id" value="<%=electricitybill.getId()%>">
 									<input type="hidden" name="type" value="electricity">
-									<button type="submit" value="approved" name="choice">Approve</button>
-									<button type="submit" value="rejected" name="choice">Reject</button>
+									<button style="margin-left:1vh;" type="submit" value="approved" name="choice">Approve</button>
+									<button  style="margin-left:2vh;" type="submit" value="rejected" name="choice">Reject</button>
 								</form>
 							</td>
 						</tr>
@@ -69,23 +74,33 @@
 
 					</tbody>
 				</table>
-			</div>
+			
 		</div>
-		<div class="report-search-container">
+
+
+		<div class="report-search-container report-box">
 			<input type="text" id="water-search-input" class="search-input"
 				oninput="filterTable('water')" placeholder="Search by ID or Status">
-			<div class="report-box">
+			
 				<table id="water">
 					<thead>
-						<th colspan="5">Water</th>
+						<th colspan="5" class="table-head">Water</th>
 					</thead>
 					<tbody>
+
+						<thead>
+					<th>ID</th>
+					<th>Status</th>
+					<th>File</th>
+					<th>Action</th>
+					
+				</thead>
 						<%
 							for (WaterBill waterbill : water_list) {
 						%>
+								
 						<tr>
 							<td><%=waterbill.getId()%></td>
-							<td><%=waterbill.getWater()%></td>
 							<td><%=waterbill.getVstatus()%></td>
 							<td><a href="<%=waterbill.getBillFile()%>"
 								download="water.pdf">Download</a></td>
@@ -97,8 +112,8 @@
 										value="<%=waterbill.getEmail()%>"> <input
 										type="hidden" name="type" value="water"> <input
 										type="hidden" name="id" value="<%=waterbill.getId()%>">
-									<button type="submit" value="approved" name="choice">Approve</button>
-									<button type="submit" value="rejected" name="choice">Reject</button>
+									<button style="margin-left:1vh;" type="submit" value="approved" name="choice">Approve</button>
+									<button  style="margin-left:2vh;" type="submit" value="rejected" name="choice">Reject</button>
 								</form>
 							</td>
 						</tr>
@@ -108,24 +123,31 @@
 
 					</tbody>
 				</table>
-			</div>
 		</div>
-		<div class="report-search-container">
+
+		<div class="report-search-container report-box">
 			<input type="text" id="recycle-search-input" class="search-input"
 				oninput="filterTable('recycle')"
 				placeholder="Search by ID or Status">
-			<div class="report-box">
 				<table id="recycle">
 					<thead>
-						<th colspan="5">Recycle</th>
+						<th colspan="5" class="table-head">Recycle</th>
 					</thead>
 					<tbody>
+
+						<thead>
+					<th>ID</th>
+					<th>Status</th>
+					<th>File</th>
+					<th>Action</th>
+					
+				</thead>	
 						<%
 							for (RecycleBill recyclebill : recycle_list) {
 						%>
+						
 						<tr>
 							<td><%=recyclebill.getId()%></td>
-							<td><%=recyclebill.getRecycle()%></td>
 							<td><%=recyclebill.getVstatus()%></td>
 							<td><a href="<%=recyclebill.getBillFile()%>"
 								download="electricity.pdf">Download</a></td>
@@ -137,8 +159,8 @@
 										value="<%=recyclebill.getEmail()%>"> <input
 										type="hidden" name="type" value="recycle"> <input
 										type="hidden" name="id" value="<%=recyclebill.getId()%>">
-									<button type="submit" value="approved" name="choice">Approve</button>
-									<button type="submit" value="rejected" name="choice">Reject</button>
+									<button style="margin-left:1vh;" type="submit" value="approved" name="choice">Approve</button>
+									<button style="margin-left:2vh;" type="submit" value="rejected" name="choice">Reject</button>
 								</form>
 							</td>
 						</tr>
@@ -149,7 +171,6 @@
 					</tbody>
 				</table>
 			</div>
-		</div>
 	</div>
 	<script>
 		function filterTable(tableId) {

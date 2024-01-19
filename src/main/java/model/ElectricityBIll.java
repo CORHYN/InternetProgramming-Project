@@ -85,7 +85,7 @@ public class ElectricityBIll {
 			return "Error: Activity file is null";
 		}
 		String downloadsFolder = System.getProperty("user.home")
-				+ "\\Documents\\Project\\Project\\src\\main\\webapp\\WEB-INF\\resources\\files\\";
+				+ "\\Documents\\Project\\src\\main\\webapp\\WEB-INF\\resources\\files\\";
 		String fileName = this.id + "electricity" + this.submit_date + ".pdf";
 		String filePath = downloadsFolder + fileName;
 
