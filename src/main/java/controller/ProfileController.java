@@ -36,6 +36,12 @@ public class ProfileController {
         return mav;
     }
     
+    @PostMapping("/updateUser")
+	public RedirectView getRegistration(Model model,@RequestParam String fullName, String dob,Integer phone,String address,String email) {
+		String id = userdao.updateUser(fullName, dob,phone, address, email);
+		return new RedirectView("http://localhost:8080/Project/");
+	}
+    
     // Other methods...
 }
 

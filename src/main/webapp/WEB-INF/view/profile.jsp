@@ -16,7 +16,7 @@
 
 <div class="container">
     <h1>Edit Profile</h1>
-    <form action="#" method="post">
+    <form action="<%= request.getContextPath() %>/view/updateUser" method="post">
         <% for (User user : userList) { %>
             <label for="fullName">Full Name:</label>
             <input type="text" id="fullName" name="fullName" value="<%= user.getFullname() %>" required>
@@ -30,8 +30,7 @@
             <label for="address">Address:</label>
             <input type="text" id="address" name="address" value="<%= user.getAddress() %>" required>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" value="<%= user.getEmail() %>" required>
+           
 
             <!-- Add other form fields as needed -->
 

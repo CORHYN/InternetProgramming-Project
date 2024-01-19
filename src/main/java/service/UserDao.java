@@ -37,10 +37,17 @@ public class UserDao {
 	public List<User> viewUser() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 	    String userEmail = authentication.getName();
-	    //String userEmail = "arshad@email.com";
 	    String sql = "SELECT * FROM user_info WHERE email = ?";
 	    List<User> list = jdbcTemplate.query(sql, new Object[]{userEmail}, new BeanPropertyRowMapper<>(User.class));   
 	    return list;
+	}
+	
+	public String updateUser(String fullName, String dob,Integer phone,String address,String email) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+	    String userEmail = authentication.getName();
+	    String sql3 = "UPDATE user_info SET fullname = ?, dob = ?, phone = ?, address = ? WHERE email = ?";
+	    int row3 = jdbcTemplate.update(sql3, fullName, dob, phone, address, userEmail);
+	    return "Rows Effected: " + row3;
 	}
 
 	
