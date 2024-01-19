@@ -26,15 +26,16 @@ private final CarbonFootprintDao calculatordao;
 		this.calculatordao = calculatordao;
 	}
 	
-	@ResponseBody
     @PostMapping("/uploadElectricityBill")
     public RedirectView handleElectricityFormUpload(@RequestParam("file") MultipartFile file,@RequestParam int electricity) throws IOException {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!file.isEmpty()) {
+        	System.out.println("File is Not Empty , Trying to upload");
             byte[] bytes = file.getBytes();
             calculatordao.storeElectricityBill(authentication.getName(), electricity, bytes);
 			return new RedirectView("http://localhost:8080/Project/water");
        } else {
+    	   System.out.println("File is Empty");
     	   return new RedirectView("http://localhost:8080/Project/electricity");
        }
     }

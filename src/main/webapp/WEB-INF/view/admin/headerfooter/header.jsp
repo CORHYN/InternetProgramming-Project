@@ -17,6 +17,7 @@
                 <a class="drop" href="http://localhost:8080/Project/admin/add">Add Activity</a>
                 <a class="drop" href="http://localhost:8080/Project/admin/view-activities">View Activity</a>
                 <a class="drop" href="http://localhost:8080/Project/admin/approveBills">View Bill Approval</a>
+                <a class="drop" href="http://localhost:8080/Project/admin/viewGenerateReport">View Report Generator</a>
             </div>
         </div>
         <div class="mbip-icon">
@@ -28,7 +29,7 @@
                 <img src="<c:url value='/resources/images/user-icon.png' />">USER
             </a>
             <div class="dropdown-content" style="margin-top: 0px">
-                <a class="drop" href="#">Profile</a>
+                <a class="drop" href="http://localhost:8080/Project/view/user">Profile</a>
                 <a class="drop" href="http://localhost:8080/Project/logout">Logout</a>
             </div>
         </div>

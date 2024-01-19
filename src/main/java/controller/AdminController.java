@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,6 +28,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import model.Activity;
+import model.CheckBoxForm;
 import model.ElectricityBIll;
 import model.RecycleBill;
 import model.User;
@@ -135,5 +137,37 @@ public class AdminController {
 		model.addAttribute("recycle_list", recycle_list);
 		return "admin/approveBills/Bills";
 	}
+	
+	@GetMapping("/viewGenerateReport")
+	public String landingPage3(Model model) {
+		List<User> list = userdao.loadUserInfoForBillApproval();
+		model.addAttribute("list", list);
+		return "admin/GenerateBill/approveBills";
+	}
+	
+	@PostMapping(value = "/generateReports")
+	public String generateReport(Model model,@ModelAttribute("checkBoxForm") CheckBoxForm checkBoxForm) {
+		System.out.println("POST /generateReport " + checkBoxForm.getEmail() + "In CheckForm Mapping");
+		for(String x: checkBoxForm.getSelectedValues()) {
+			System.out.println(x);
+		}
+		List<ElectricityBIll> electricity_list = carbondao.getElectricityBill(checkBoxForm.getEmail());
+		model.addAttribute("electricity_list", electricity_list);
+		model.addAttribute("email",checkBoxForm.getEmail());
+		return "admin/GenerateBill/Bills";
+	}
+	
+	@PostMapping(value = "/generateReport", params = {"email"})
+	public String generateReport(Model model, @RequestParam String email) {
+		System.out.println("POST /generateReport " + email );
+		CheckBoxForm checkBoxForm = new CheckBoxForm();
+        model.addAttribute("checkBoxForm", checkBoxForm);
+		List<ElectricityBIll> electricity_list = carbondao.getElectricityBill(email);
+		model.addAttribute("electricity_list", electricity_list);
+		model.addAttribute("email",email);
+		return "admin/GenerateBill/Bills";
+	}
+	
+	
 	
 }

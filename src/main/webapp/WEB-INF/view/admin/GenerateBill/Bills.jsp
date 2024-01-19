@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ page import="java.util.List"%>
 <%@ page import="model.ElectricityBIll"%>
 <%@ page import="model.WaterBill"%>
 <%@ page import="model.RecycleBill"%>
+<%@ page import="model.CheckBoxForm"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,8 +24,7 @@
 	<jsp:include page="../headerfooter/header.jsp" />
 	<%
 		List<ElectricityBIll> electricity_list = (List<ElectricityBIll>) request.getAttribute("electricity_list");
-		List<WaterBill> water_list = (List<WaterBill>) request.getAttribute("water_list");
-		List<RecycleBill> recycle_list = (List<RecycleBill>) request.getAttribute("recycle_list");
+		String email = (String) request.getAttribute("email");
 	%>
 
 
@@ -35,7 +36,7 @@
 				oninput="filterTable('electricity')"
 				placeholder="Search by ID or Status">
 			<div class="report-box">
-				<form action="http://localhost:8080/Project/admin/generateReport" method="post">
+				<form:form modelAttribute="checkBoxForm" action="http://localhost:8080/Project/admin/generateReports" method="post">
 				<table id="electricity">
 					<thead>
 						<th colspan="5">Electricity</th>
@@ -49,11 +50,9 @@
 							<td><%=electricitybill.getElectricity()%></td>
 							<td>
 								
-									<input type="hidden" name="email" value="<%=electricitybill.getEmail()%>"> 
-									<input type="hidden" name="id" value="<%=electricitybill.getId()%>">
-									<input type="hidden" name="type" value="electricity">
-									<button type="submit" value="approved" name="choice">Approve</button>
-									<button type="submit" value="rejected" name="choice">Reject</button>
+									<form:checkbox path="selectedValues" value="<%=electricitybill.getId()%>" />
+						
+									
 								
 							</td>
 						</tr>
@@ -63,7 +62,9 @@
 
 					</tbody>
 				</table>
-				</form>
+				<form:input path="email" type="hidden" value="<%= email %>"/>
+				<input type="submit" value="Generate" >
+				</form:form>
 			</div>
 		</div>
 	</div>
