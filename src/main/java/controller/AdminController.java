@@ -173,7 +173,7 @@ public class AdminController {
 		model.addAttribute("email",checkBoxForm.getEmail());
 		List<User> list = userdao.loadUserInfoForBillApproval();
 		model.addAttribute("list", list);
-		return "admin/GenerateBill/approveBills";
+		return "admin/GenerateBill/sucess";
 	}
 	
 	@PostMapping(value = "/generateReport", params = {"email"})
