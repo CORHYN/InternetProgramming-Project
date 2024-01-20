@@ -18,7 +18,7 @@
   	 <link rel="stylesheet" href="<c:url value='/resources/css/listOfActivities.css' />">
 </head>
 <body >
-<jsp:include page="../header/header.jsp" />
+
 
 
 <%
@@ -26,7 +26,9 @@ List<ElectricityBIll> electricity_list = (List<ElectricityBIll>) request.getAttr
 List<WaterBill> water_list = (List<WaterBill>) request.getAttribute("wBill");
 List<RecycleBill> recycle_list = (List<RecycleBill>) request.getAttribute("rBill");
 %>
-
+<header>
+	<jsp:include page="../header/header.jsp" />
+</header>
 <div class="main-container">
 		<table>
     <thead>
@@ -70,8 +72,11 @@ List<RecycleBill> recycle_list = (List<RecycleBill>) request.getAttribute("rBill
 		
 </div>
 
+<footer>
+	<jsp:include page="../footer/footer.jsp" />
+</footer>
 
-<jsp:include page="../footer/footer.jsp" />
+
 
 </body>
 </html>

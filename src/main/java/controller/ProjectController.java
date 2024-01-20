@@ -35,5 +35,13 @@ public class ProjectController {
 	public String landingPage6() {
 		return "customer/generatereport/generateReport";
 	}
+	@RequestMapping("/customer/sucess-promt/sucess")
+	public String landingPage7() {
+		return "customer/sucess-promt/sucess";
+	}
+	@RequestMapping("/customer/sucess-promt/unsucess")
+	public String landingPage8() {
+		return "customer/unsucess/unsucess";
+	}
 	
 }

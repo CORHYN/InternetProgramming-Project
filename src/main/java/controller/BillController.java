@@ -33,10 +33,10 @@ private final CarbonFootprintDao calculatordao;
         	System.out.println("File is Not Empty , Trying to upload");
             byte[] bytes = file.getBytes();
             calculatordao.storeElectricityBill(authentication.getName(), electricity, bytes);
-			return new RedirectView("http://localhost:8080/Project/");
+			return new RedirectView("http://localhost:8080/Project/customer/sucess-promt/sucess");
        } else {
     	   System.out.println("File is Empty");
-    	   return new RedirectView("http://localhost:8080/Project/electricity");
+    	   return new RedirectView("http://localhost:8080/Project/customer/sucess-promt/unsucess");
        }
     }
 	
@@ -46,9 +46,9 @@ private final CarbonFootprintDao calculatordao;
 		if (!file.isEmpty()) {
             byte[] bytes = file.getBytes();
 			calculatordao.storewaterbill(authentication.getName(), water, bytes);
-			return new RedirectView("http://localhost:8080/Project/");
+			return new RedirectView("http://localhost:8080/Project/customer/sucess-promt/sucess");
        } else {
-    	   return new RedirectView("http://localhost:8080/Project/water");
+    	   return new RedirectView("http://localhost:8080/Project/customer/sucess-promt/unsucess");
        }
 	}
 	
@@ -58,9 +58,9 @@ private final CarbonFootprintDao calculatordao;
 		if (!file.isEmpty()) {
             byte[] bytes = file.getBytes();
 			calculatordao.storerecyclebill(authentication.getName(), recycle, bytes);
-			return new RedirectView("http://localhost:8080/Project/");
+			return new RedirectView("http://localhost:8080/Project/customer/sucess-promt/sucess");
        } else {
-    	   return new RedirectView("http://localhost:8080/Project/recycle");
+    	   return new RedirectView("http://localhost:8080/Project/customer/sucess-promt/unsucess");
        }
 	}
 

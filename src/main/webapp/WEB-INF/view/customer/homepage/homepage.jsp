@@ -26,8 +26,7 @@
     <h1>LOW CARBON <br>
         MONITORING SYSTEM</h1>
     <h2> Low carbon initiatives, a global exchange.</h2>
-   <a href="http://localhost:8080/Project/login">  <button  class="homepage-button-signup" > Login</button></a>
-    <a href="register.html"><button class="homepage-button-login"> register</button></a>
+   
    
 
 </div>
