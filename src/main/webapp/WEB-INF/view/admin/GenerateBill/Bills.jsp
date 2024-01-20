@@ -19,7 +19,7 @@
 	href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Montserrat:ital@1&family=Roboto+Mono:ital@1&family=Roboto:ital,wght@1,900&family=Rubik+Burned&family=Sora:wght@300&display=swap"
 	rel="stylesheet">
 <link rel="stylesheet"
-	href="http://localhost:8080/Project/resources/css/approvebill.css" />
+	href="http://localhost:8080/Project/resources/css/generate.css" />
 </head>
 <body>
 	<jsp:include page="../headerfooter/header.jsp" />
@@ -29,29 +29,32 @@
 		List<RecycleBill> recycle_list = (List<RecycleBill>) request.getAttribute("recycle_list");
 		List<UserReport> reports = (List<UserReport>) request.getAttribute("user_reports");
 		String email = (String) request.getAttribute("email");
+		
 	%>
 
 
 
 
 	<div class="report-container">
-		<div class="report-search-container">
+			<form:form modelAttribute="checkBoxForm"
+					action="http://localhost:8080/Project/admin/generateReports"
+					method="post" class="formformform">
+					<div class="tablesofpower">
+		<div class="report-search-container report-box">
 			<input type="text" id="electricity-search-input" class="search-input"
 				oninput="filterTable('electricity')"
 				placeholder="Search by ID or Status">
-			<div class="report-box">
-				<form:form modelAttribute="checkBoxForm"
-					action="http://localhost:8080/Project/admin/generateReports"
-					method="post">
-					<table id="electricity">
+
+				<table id="electricity">
 						<thead>
-							<th colspan="5">Electricity</th>
+							<th colspan="4" class="table-head">Electricity</th>
 						</thead>
 						<tbody>
 						<thead>
 							<th>ID</th>
 							<th>Value</th>
 							<th>Date</th>
+							<th></th>
 						</thead>
 						<%
 							for (ElectricityBIll electricitybill : electricity_list) {
@@ -68,16 +71,25 @@
 						%>
 
 						</tbody>
-					</table>
-					<table id="water">
-						<thead>
-							<th colspan="5" class="table-head">Water</th>
+				</table>
+			
+		</div>
+
+
+		<div class="report-search-container report-box">
+			<input type="text" id="water-search-input" class="search-input"
+				oninput="filterTable('water')" placeholder="Search by ID or Status">
+			
+				<table id="water">
+										<thead>
+							<th colspan="4" class="table-head">Water</th>
 						</thead>
 						<tbody>
 						<thead>
 							<th>ID</th>
 							<th>Value</th>
 							<th>Date</th>
+							<th></th>
 						</thead>
 						<%
 							for (WaterBill waterbill : water_list) {
@@ -95,17 +107,23 @@
 						%>
 
 						</tbody>
-					</table>
-					<table id="recycle">
-						<thead>
-							<th colspan="5" class="table-head">Recycle</th>
+				</table>
+		</div>
+
+		<div class="report-search-container report-box">
+			<input type="text" id="recycle-search-input" class="search-input"
+				oninput="filterTable('recycle')"
+				placeholder="Search by ID or Status">
+				<table id="recycle">
+										<thead>
+							<th colspan="4" class="table-head">Recycle</th>
 						</thead>
 						<tbody>
 						<thead>
 							<th>ID</th>
 							<th>Value</th>
 							<th>Date</th>
-
+							<th></th>
 						</thead>
 						<%
 							for (RecycleBill recyclebill : recycle_list) {
@@ -123,16 +141,12 @@
 						%>
 
 						</tbody>
-					</table>
-					<form:input path="email" type="hidden" value="<%=email%>" />
-					<input type="submit" value="Generate">
-				</form:form>
+				</table>
 			</div>
-		</div>
-		<div class="report-box">
+		<div class="report-box-yoyo">
 			<table>
 				<thead>
-					<th colspan="5" class="table-head">Report</th>
+					<th colspan="4" class="table-head">Report</th>
 				</thead>
 				<tbody>
 				<thead>
@@ -145,7 +159,7 @@
 				<%
 					for (UserReport report : reports) {
 				%>
-
+				
 				<tr>
 					<td><%=report.getId()%></td>
 					<td><%=report.getElectricity_consumtion()%></td>
@@ -159,33 +173,30 @@
 				</tbody>
 			</table>
 		</div>
+		</div>
+	<form:input path="email" type="hidden" value="<%=email%>" />
+					<input type="submit" value="Generate">
+				</form:form>
 	</div>
 	<script>
-		function filterTable(tableId) {
-			// Get input value and convert to lowercase for case-insensitive search
-			var searchInput = document
-					.getElementById(tableId + "-search-input").value
-					.toLowerCase();
+    function filterTable(tableId) {
+        // Get input value and convert to lowercase for case-insensitive search
+        var searchInput = document.getElementById(tableId + "-search-input").value.toLowerCase();
 
-			// Get table rows
-			var rows = document.querySelectorAll("#" + tableId + " tbody tr");
+        // Get table rows
+        var rows = document.querySelectorAll("#" + tableId + " tbody tr");
 
-			// Loop through rows and hide those that don't match the search input
-			rows.forEach(function(row) {
-				var id = row.querySelector("td:first-child").textContent
-						.toLowerCase();
-				var status = row.querySelector("td:nth-child(3)").textContent
-						.toLowerCase();
+        // Loop through rows and hide those that don't match the search input
+        rows.forEach(function (row) {
+            var id = row.querySelector("td:first-child").textContent.toLowerCase();
 
-				if ((id.indexOf(searchInput) > -1)
-						|| (status.indexOf(searchInput) > -1)) {
-					row.style.display = "";
-				} else {
-					row.style.display = "none";
-				}
-
-			});
-		}
+            if (id.indexOf(searchInput) > -1) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    }
 	</script>
 	<jsp:include page="../headerfooter/footer.jsp" />
 </body>
