@@ -40,14 +40,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		// This is used to add custom login page
 		http
 		.authorizeRequests()
+		.antMatchers("/home")
+		.permitAll()
 		.antMatchers("/resources/**")
 		.permitAll()
 		.antMatchers("/")
-		.permitAll()
+		.hasAuthority("participant")
 		.antMatchers("/register/**")
 		.permitAll()
 		.antMatchers("/admin/**").hasAuthority("ADMIN")
-		.antMatchers("/approveTheBills/approval").permitAll()
 		.anyRequest().authenticated()
 		.and()
 		.formLogin()

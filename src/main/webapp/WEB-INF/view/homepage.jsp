@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<jsp:include page="../header/header.jsp" />
+<jsp:include page="customer/header/header.jsp" />
 
 
 <div class="homepage-pic-container">
@@ -26,7 +26,8 @@
     <h1>LOW CARBON <br>
         MONITORING SYSTEM</h1>
     <h2> Low carbon initiatives, a global exchange.</h2>
-   
+      <a href="http://localhost:8080/Project/login">  <button  class="homepage-button-signup" > Login</button></a>
+    <a href="register.html"><button class="homepage-button-login"> register</button></a>
    
 
 </div>
@@ -87,7 +88,7 @@
     </div>
 </div>
 
-<jsp:include page="../footer/footer.jsp" />
+<jsp:include page="customer/footer/footer.jsp" />
 
 </body>
 </html>

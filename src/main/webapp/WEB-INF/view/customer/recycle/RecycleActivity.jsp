@@ -62,7 +62,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
             </div>
           </div>
           <div class="buttoms">
-            <button type="submit" style="margin-right: 50px">Next</button>
+            <button type="submit" style="margin-right: 50px">Submit</button>
             <button type="reset">Reset</button>
           </div>
         </form>
