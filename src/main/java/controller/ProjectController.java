@@ -10,6 +10,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class ProjectController {
+	@RequestMapping("/home")
+	public String landingPage69() {
+		return "homepage";
+	}
+	
+	
 	@RequestMapping("/")
 	public String landingPage() {
 		return "customer/homepage/homepage";

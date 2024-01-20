@@ -154,39 +154,26 @@ public class AdminController {
 		int totalRecConsumption = 0;
 		int recCount = 0;
 		for(int x: checkBoxForm.getElectricityID()) {
-			System.out.println("electricity id : " + x);
 			ElectricityBIll obj = carbondao.getElectricityBill(checkBoxForm.getEmail(), x);
 			totalElecConsumption += obj.getElectricity();
 		}
 		for(int x: checkBoxForm.getWaterID()) {
-			System.out.println("water id : " + x);
 			WaterBill obj = carbondao.getWaterBill(checkBoxForm.getEmail(), x);
 			totalWaterConsumption += obj.getWater();
 		}
 		for(int x: checkBoxForm.getRecycleID()) {
-			System.out.println("recycle id : " + x);
 			recCount++;
 			RecycleBill obj = carbondao.getRecycleBill(checkBoxForm.getEmail(), x);
 			totalRecConsumption += obj.getRecycle();
-			System.out.println("recycle value : " + obj.getRecycle());
 		}
-		System.out.println(totalRecConsumption);
 		totalElecConsumption = totalElecConsumption*105;
 		totalRecConsumption = (totalRecConsumption/(100*recCount))*100;
-		System.out.println(totalElecConsumption);
-		System.out.println(totalRecConsumption);
 		carbondao.generateNewReport(checkBoxForm.getEmail(), totalElecConsumption, totalWaterConsumption, totalRecConsumption);
 		model.addAttribute("success", true);
-		List<ElectricityBIll> electricity_list = carbondao.getElectricityBillApproved(checkBoxForm.getEmail());
-		List<WaterBill> water_list = carbondao.getWaterBillApproved(checkBoxForm.getEmail());
-		List<RecycleBill> recycle_list = carbondao.getRecycleBillApproved(checkBoxForm.getEmail());
-		List<UserReport> reports = carbondao.getUserReport(checkBoxForm.getEmail());
-		model.addAttribute("water_list", water_list);
-		model.addAttribute("recycle_list", recycle_list);
-		model.addAttribute("electricity_list", electricity_list);
 		model.addAttribute("email",checkBoxForm.getEmail());
-		model.addAttribute("user_reports", reports);
-		return "admin/GenerateBill/Bills";
+		List<User> list = userdao.loadUserInfoForBillApproval();
+		model.addAttribute("list", list);
+		return "admin/GenerateBill/approveBills";
 	}
 	
 	@PostMapping(value = "/generateReport", params = {"email"})

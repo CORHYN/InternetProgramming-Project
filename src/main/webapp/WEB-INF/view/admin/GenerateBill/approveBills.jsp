@@ -20,7 +20,25 @@
 	<jsp:include page="../headerfooter/header.jsp" />
 	<%
 		List<User> list = (List<User>) request.getAttribute("list");
+		Boolean successAttribute = (Boolean) request.getAttribute("success");
+	    boolean success = successAttribute != null && successAttribute;
+		String email = (String)request.getAttribute("email");
 	%>
+	<form id="generateReportForm" action="http://localhost:8080/Project/admin/generateReport" method="post">
+    	<input type="hidden" name="email" value="<%=email%>">
+	</form>
+	<% if(success){ %>
+	<script>
+    // Check if the 'success' attribute is true
+    var successAttribute = <%= request.getAttribute("success") %>;
+
+    // If 'success' is true, submit the form
+    if (successAttribute) {
+        document.getElementById("generateReportForm").submit();
+    }
+	</script>
+	<% }%>
+	
 	<div class="report-container">
 		<input type="text" id="searchInput" oninput="filterTable()"
 			placeholder="Search by Name">
