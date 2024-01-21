@@ -30,6 +30,6 @@ public class RegisterController {
 	@PostMapping("/createUser")
 	public RedirectView getRegistration(Model model,@RequestParam String authority, String fullName, String dob,Integer phone,String address,String email, String password) {
 		String id = userdao.createUser(authority, fullName, dob, phone, address, email, password);
-		return new RedirectView("http://localhost:8080/Project/");
+		return new RedirectView("http://localhost:8080/Project/sucessfull");
 	}
 }

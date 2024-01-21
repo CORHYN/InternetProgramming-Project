@@ -167,7 +167,7 @@ public class AdminController {
 			totalRecConsumption += obj.getRecycle();
 		}
 		totalElecConsumption = totalElecConsumption*105;
-		totalRecConsumption = (totalRecConsumption/(100*recCount))*100;
+		totalRecConsumption = totalRecConsumption;
 		carbondao.generateNewReport(checkBoxForm.getEmail(), totalElecConsumption, totalWaterConsumption, totalRecConsumption);
 		model.addAttribute("success", true);
 		model.addAttribute("email",checkBoxForm.getEmail());
