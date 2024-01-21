@@ -52,7 +52,7 @@
 					<td><%=activity.getActivityDate()%></td>
 					<td><%=activity.getActivityLocation()%></td>
 					<td><a href="<%=activity.downloadPdf()%>"
-						download="your_file_name.pdf">Download</a></td>
+						download="poster.pdf">Download</a></td>
 				</tr>
 				<%
 					}

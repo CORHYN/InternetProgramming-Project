@@ -47,7 +47,11 @@ public class ProjectController {
 	}
 	@RequestMapping("/customer/sucess-promt/unsucess")
 	public String landingPage8() {
-		return "customer/unsucess/unsucess";
+		return "customer/unsuccess/unsucess";
+	}
+	@RequestMapping("/sucessfull")
+	public String landingPage9() {
+		return "sucess";
 	}
 	
 }

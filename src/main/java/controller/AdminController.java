@@ -168,6 +168,10 @@ public class AdminController {
 			totalRecConsumption += obj.getRecycle();
 		}
 		totalElecConsumption = totalElecConsumption*105;
+<<<<<<< HEAD
+		totalRecConsumption = totalRecConsumption;
+		carbondao.generateNewReport(checkBoxForm.getEmail(), totalElecConsumption, totalWaterConsumption, totalRecConsumption);
+=======
 		if (recCount != 0) {
 			recCount = 100 * recCount;
 		    totalRec = (int)((totalRecConsumption / recCount) * 100);
@@ -175,6 +179,7 @@ public class AdminController {
 		    System.out.print("Recycle values are missing");
 		}
 		carbondao.generateNewReport(checkBoxForm.getEmail(), totalElecConsumption, totalWaterConsumption, totalRec);
+>>>>>>> 409ec0da60921747d96a677877018df0c0018bd7
 		model.addAttribute("success", true);
 		model.addAttribute("email",checkBoxForm.getEmail());
 		List<User> list = userdao.loadUserInfoForBillApproval();
