@@ -18,7 +18,6 @@ import model.User; // Import the correct User class from your application's mode
 import service.UserDao;
 
 @Controller
-@RequestMapping("/view")
 public class ProfileController {
     
     private final UserDao userdao;
@@ -28,7 +27,7 @@ public class ProfileController {
     ProfileController(UserDao userdao){
         this.userdao = userdao;
     }
-    @RequestMapping("/user")
+    @RequestMapping("/view/user")
     public ModelAndView getall_mav() {
         List<User> userList = userdao.viewUser();
         ModelAndView mav = new ModelAndView("profile");
@@ -36,12 +35,25 @@ public class ProfileController {
         return mav;
     }
     
-    @PostMapping("/updateUser")
+    @PostMapping("/view/updateUser")
 	public RedirectView getRegistration(Model model,@RequestParam String fullName, String dob,Integer phone,String address,String email) {
 		String id = userdao.updateUser(fullName, dob,phone, address, email);
 		return new RedirectView("http://localhost:8080/Project/");
 	}
     
+    @RequestMapping("/admin/user")
+    public ModelAndView getall_mav1() {
+        List<User> userList = userdao.viewUser();
+        ModelAndView mav = new ModelAndView("admin/profile");
+        mav.addObject("userList", userList);
+        return mav;
+    }
+    
+    @PostMapping("/admin/updateUser")
+	public RedirectView getRegistration1(Model model,@RequestParam String fullName, String dob,Integer phone,String address,String email) {
+		String id = userdao.updateUser(fullName, dob,phone, address, email);
+		return new RedirectView("http://localhost:8080/Project/admin/");
+	}
     // Other methods...
 }
 

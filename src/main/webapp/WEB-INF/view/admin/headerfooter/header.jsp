@@ -29,7 +29,7 @@
                 <img src="<c:url value='/resources/images/user-icon.png' />">USER
             </a>
             <div class="dropdown-content" style="margin-top: 0px">
-                <a class="drop" href="http://localhost:8080/Project/view/user">Profile</a>
+                <a class="drop" href="http://localhost:8080/Project/admin/user">Profile</a>
                 <a class="drop" href="http://localhost:8080/Project/logout">Logout</a>
             </div>
         </div>
