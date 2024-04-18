@@ -1,4 +1,4 @@
-![image](https://github.com/CORHYN/InternetProgramming-Project/assets/101929444/6c02ad35-c375-442a-844f-5b82172263fd)![image](https://github.com/CORHYN/InternetProgramming-Project/assets/101929444/22919b44-9172-4463-a938-5ae556e33c7f)# MBIP Project - Carbon Footprint Analysis
+# MBIP Project - Carbon Footprint Analysis
 ## Overview
 
 The MBIP carbonfoot print project is aimed at assessing and understanding the carbon footprint of individuals living in Iskander Puteri. By collecting and analyzing data related to electricity consumption, recycling habits, and water consumption, we aim to provide valuable insights into the environmental impact of daily activities and promote sustainable living practices.
@@ -9,6 +9,7 @@ The MBIP carbonfoot print project is aimed at assessing and understanding the ca
 - [Analysis](#analysis)
 - [Contributing](#contributing)
 - [License](#license)
+- [Final System](#final-system)
 
 ## Features
 
@@ -36,54 +37,54 @@ License
 
 ## Final System
 
-Login page 
+### Login page 
 ![image](https://github.com/CORHYN/InternetProgramming-Project/assets/101929444/9d469abf-74c2-47ad-a1d2-558208852176)
 
-Registration 
+### Registration 
 ![image](https://github.com/CORHYN/InternetProgramming-Project/assets/101929444/8fd34fac-bbe1-47e8-a621-a55345a141b7)
 
-Homepage without login 
+### Homepage without login 
 ![image](https://github.com/CORHYN/InternetProgramming-Project/assets/101929444/96dbb082-fd30-4d60-9d83-de59c01bda64)
 
-Admin  view 
+### Admin  view 
 ![image](https://github.com/CORHYN/InternetProgramming-Project/assets/101929444/e8a7b4d4-f5ea-47ff-bbf5-12b1408576cb)
  
-Add activity 
+### Add activity 
 ![image](https://github.com/CORHYN/InternetProgramming-Project/assets/101929444/be29368b-246e-466f-b4e4-9f28b596fbae)
 
-View activity 
+### View activity 
 ![image](https://github.com/CORHYN/InternetProgramming-Project/assets/101929444/ab27602f-4556-4c50-be0f-d5cd065dc273)
 
-View bill approval 
+### View bill approval 
 ![image](https://github.com/CORHYN/InternetProgramming-Project/assets/101929444/37414b88-aee5-420c-85d5-445fc4e7c0a8)
 ![image](https://github.com/CORHYN/InternetProgramming-Project/assets/101929444/17c539ad-a6ab-4da4-bdd0-4ee63bc0dfce)
 
-Generate report  
+### Generate report  
 ![image](https://github.com/CORHYN/InternetProgramming-Project/assets/101929444/5ee310e6-1f56-4eeb-bb56-1df525eb1ff8)
 ![image](https://github.com/CORHYN/InternetProgramming-Project/assets/101929444/c7616323-8d0a-4682-8f28-77ec21c9ee5d)
 ![image](https://github.com/CORHYN/InternetProgramming-Project/assets/101929444/c30eef20-e2c9-4de4-b651-3da46bb1d0aa)
 
-#Customer view 
+## Customer view 
 
-Add waste consumption 
+### Add waste consumption 
 ![image](https://github.com/CORHYN/InternetProgramming-Project/assets/101929444/86db69a9-2cea-4727-94ae-c2f9717b1ccc)
 ![image](https://github.com/CORHYN/InternetProgramming-Project/assets/101929444/34d4d2c2-d979-4747-98e8-41d5f2a18c4e)
 
-Add electricity  consumption 
+### Add electricity  consumption 
 ![image](https://github.com/CORHYN/InternetProgramming-Project/assets/101929444/c5657c55-6566-401e-a1ed-b2d367d0214f)
 ![image](https://github.com/CORHYN/InternetProgramming-Project/assets/101929444/b316c7ea-65a2-40f9-a1cb-da2dfa825416)
  
-Add water consumption 
+### Add water consumption 
 ![image](https://github.com/CORHYN/InternetProgramming-Project/assets/101929444/a84e7a8f-6f68-4c72-aa20-bd65e8faea61)
 ![image](https://github.com/CORHYN/InternetProgramming-Project/assets/101929444/eedd6298-95be-400f-a53f-1f9416dc479d)
  
-View bills 
+### View bills 
 ![image](https://github.com/CORHYN/InternetProgramming-Project/assets/101929444/9e534483-97c8-4844-bef6-e88277d294cb)
  
-View carbon report 
+### View carbon report 
 ![image](https://github.com/CORHYN/InternetProgramming-Project/assets/101929444/8ab1b528-f44d-49b2-be69-ffc4745ee069)
  
-View activities 
+### View activities 
 ![image](https://github.com/CORHYN/InternetProgramming-Project/assets/101929444/24a03243-dec8-4e2f-a336-5546de324cac)
 
 
